@@ -6,4 +6,4 @@ Matheo Allard
 Alexandrian Guillot
 Romain Delrieux
 
-https://github.com/githubdelrieuxjsd/zeldoAdventure.git
+https://github.com/githubdelrieuxjsd/ACL_2019_zeldoAdventure.git
