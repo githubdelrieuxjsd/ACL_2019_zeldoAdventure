@@ -5,6 +5,7 @@ public class Coordonnee {
 	private int x;
 	private int y;
 	
+	// contructeur int x , int y 
 	public Coordonnee(){
 		this.x=-1;
 		this.y=-1;
