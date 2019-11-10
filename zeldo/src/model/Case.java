@@ -2,7 +2,6 @@ package model;
 
 public class Case {
 	
-	
 	private boolean isEmpty() {
 		if (DecorABS.nom.equals("UnitVoid") && UnitABS.nom.equals("DecorVoid")) {
 			return true;
