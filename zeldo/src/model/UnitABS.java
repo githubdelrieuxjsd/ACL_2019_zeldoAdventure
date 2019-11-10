@@ -1,5 +1,7 @@
 package model;
 
-public class UnitABS extends ElementABS {
+public abstract class UnitABS extends ElementABS {
+	
+	
 
 }

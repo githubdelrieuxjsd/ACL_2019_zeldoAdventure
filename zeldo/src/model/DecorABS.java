@@ -1,5 +1,5 @@
 package model;
 
-public class DecorABS extends ElementABS {
+public abstract class DecorABS extends ElementABS {
 
 }
