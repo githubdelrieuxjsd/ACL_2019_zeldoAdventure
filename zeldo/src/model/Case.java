@@ -12,7 +12,7 @@ public class Case {
 	}
 	
 	private boolean isPraticable(UnitABS u) {
-		if (DecorABS.nom.equals("Grass") && UnitABS.nom.equals("UnitVoid")) {
+		if (DecorABS.nom.equals("Grass") && u.nom.equals("UnitVoid")) {
 			return true;
 		}
 		else {
