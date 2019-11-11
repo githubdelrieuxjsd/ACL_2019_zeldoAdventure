@@ -6,12 +6,12 @@ public class Control {
 
 	int Salusse;
 
-	private static int tailleCase = 60;
+	private static int tailleCase = 80;
 	public static Board board;
 
 	public static void initPlateau(int tailleHoriz, int tailleVerti) {
 		int nbCaseHori = tailleHoriz / tailleCase;
-		int nbCaseVerti = tailleVerti / tailleCase;
+		int nbCaseVerti = tailleVerti / tailleCase;		
 
 		board = new Board(nbCaseHori, nbCaseVerti);
 	}

@@ -1,17 +1,22 @@
 package model;
 
-public class Coordonnees {
+public class Coordonnee {
 
 	private int x;
 	private int y;
 
 	// contructeur int x , int y
-	public Coordonnees() {
+	public Coordonnee() {
 		this.x = -1;
 		this.y = -1;
 	}
 
-	private int[] getCoordonees() {
+	public Coordonnee(int x, int y) {
+		this.x = x;
+		this.y = y;
+	}
+
+	private int[] getCoordonnee() {
 		int[] result = { this.x, this.y };
 		return result;
 	}

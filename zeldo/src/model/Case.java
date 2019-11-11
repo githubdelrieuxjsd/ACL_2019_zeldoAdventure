@@ -4,17 +4,23 @@ public class Case {
 
 	private Decor decor;
 	private Unit unit;
-	private Coordonnees coordonnees;
+	private Coordonnee coordonnees;
 
 	// CONSTRUCTEUR
-	public Case(Coordonnees coord, Decor decor, Unit unit) {
+	public Case(Coordonnee coord, Decor decor, Unit unit) {
 		this.coordonnees = coord;
 		this.decor = decor;
 		this.unit = unit;
 	}
 
-	public Case(Coordonnees coord) {
+	public Case(Coordonnee coord) {
 		this.coordonnees = coord;
+		this.decor = new DecorVoid();
+		this.unit = new UnitVoid();
+
+	}
+	
+	public Case() {
 		this.decor = new DecorVoid();
 		this.unit = new UnitVoid();
 
@@ -52,11 +58,11 @@ public class Case {
 		this.unit = u;
 	}
 
-	public Coordonnees getCoordonnee() {
+	public Coordonnee getCoordonnee() {
 		return coordonnees;
 	}
 
-	public void setCoordonnee(Coordonnees coordonnees) {
+	public void setCoordonnee(Coordonnee coordonnees) {
 		this.coordonnees = coordonnees;
 	}
 
