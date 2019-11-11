@@ -44,10 +44,10 @@ public class VueJeu extends JPanel {
 		Case[][] board = Control.board.getBoard();
 		for(int i=0; i<board[0].length;i++) {
 			for(int j=0;j<board.length;j++) {
-				ImageIcon decor = new ImageIcon(board[i][j].getDecors().getImageURL());
+				ImageIcon decor = new ImageIcon(board[i][j].getDecor().getImageURL());
 				Image imgD = decor.getImage();
 				g.drawImage(imgD,i*30,j*30,60*3,60*3,null); //x,y,largueur, hauteur,null	
-				ImageIcon unit = new ImageIcon(board[i][j].getDecors().getImageURL());
+				ImageIcon unit = new ImageIcon(board[i][j].getDecor().getImageURL());
 				Image imgU = unit.getImage();
 				g.drawImage(imgU,i*30,j*30,60*3,60*3,null); //x,y,largueur, hauteur,null	
 			}
