@@ -18,22 +18,15 @@ import control.Control;
 import model.Case;
 
 public class VueJeu extends JPanel {
-	
-	
-	
-	
+
 	private KeyListener keyListener;
 	private String playerDecision;
 	private JButton exitBtn;
-	
 
 	public VueJeu() {
 		this.setLayout(null);
 		this.setBackground(Color.BLUE);
-		
-		
-		
-		
+
 		this.addKeyListener(new KeyListener() {
 
 			@Override
@@ -41,26 +34,26 @@ public class VueJeu extends JPanel {
 
 				switch (e.getKeyCode()) {
 				case KeyEvent.VK_UP:
-					playerDecision=	Control.verifierPlayerDecision("moveUp");
+					playerDecision = Control.verifierPlayerDecision("moveUp");
 					break;
 				case KeyEvent.VK_DOWN:
-					playerDecision=	Control.verifierPlayerDecision("moveDown");		
+					playerDecision = Control.verifierPlayerDecision("moveDown");
 					break;
 				case KeyEvent.VK_RIGHT:
-					playerDecision=	Control.verifierPlayerDecision("moveRight");	
+					playerDecision = Control.verifierPlayerDecision("moveRight");
 					break;
 				case KeyEvent.VK_LEFT:
-					playerDecision=	Control.verifierPlayerDecision("moveLeft");		
+					playerDecision = Control.verifierPlayerDecision("moveLeft");
 					break;
-					
+
 				case KeyEvent.VK_ESCAPE:
 					System.exit(0);
 					break;
-					
+
 				default:
 					;
 				}
-				
+
 			}
 
 			@Override
@@ -74,7 +67,7 @@ public class VueJeu extends JPanel {
 			}
 
 		});
-		this.setFocusable(true); //important pour le bon fonctionnement 
+		this.setFocusable(true); // important pour le bon fonctionnement
 	}
 
 	public void paintComponent(Graphics g) {
@@ -82,27 +75,28 @@ public class VueJeu extends JPanel {
 
 		paintBoard(g);
 		try {
-			Thread.sleep(1000); //ms
+			Thread.sleep(1000); // ms
 		} catch (InterruptedException e) {
 			e.printStackTrace();
 		}
 		repaint();
 
-
 	}
-	
+
 	public void paintBoard(Graphics g) {
 		Case[][] board = Control.board.getBoard();
-		for(int i=0; i<board[0].length;i++) {
-			for(int j=0;j<board.length;j++) {
+		for (int i = 0; i < board[0].length; i++) {
+			for (int j = 0; j < board.length; j++) {
 				ImageIcon decor = new ImageIcon(board[i][j].getDecor().getImageURL());
 				Image imgD = decor.getImage();
-				g.drawImage(imgD,i*Control.getTailleCase(),j*Control.getTailleCase(),Control.getTailleCase()*3,Control.getTailleCase()*3,null); //x,y,largueur, hauteur,null	
+				g.drawImage(imgD, i * Control.getTailleCase(), j * Control.getTailleCase(), Control.getTailleCase() * 3,
+						Control.getTailleCase() * 3, null); // x,y,largueur, hauteur,null
 				ImageIcon unit = new ImageIcon(board[i][j].getDecor().getImageURL());
 				Image imgU = unit.getImage();
-				g.drawImage(imgU,i*Control.getTailleCase(),j*Control.getTailleCase(),Control.getTailleCase()*3,Control.getTailleCase()*3,null); //x,y,largueur, hauteur,null	
+				g.drawImage(imgU, i * Control.getTailleCase(), j * Control.getTailleCase(), Control.getTailleCase() * 3,
+						Control.getTailleCase() * 3, null); // x,y,largueur, hauteur,null
 			}
 		}
-		
+
 	}
 }

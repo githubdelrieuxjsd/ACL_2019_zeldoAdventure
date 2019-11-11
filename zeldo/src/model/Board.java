@@ -15,6 +15,7 @@ public class Board {
 		this.nbCaseVertical = nbCaseVertical;
 
 		this.board = new Case[nbCaseHorizontal][nbCaseVertical];
+		
 		for (int kx = 0; kx < nbCaseHorizontal; kx++) {
 			for (int ky = 0; ky < nbCaseVertical; ky++) {
 				this.board[kx][ky] = new Case(new Coordonnee(kx, ky));
