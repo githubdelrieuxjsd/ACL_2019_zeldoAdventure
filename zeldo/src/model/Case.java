@@ -2,44 +2,42 @@ package model;
 
 public class Case {
 
-	private DecorABS decors;
-	private UnitABS unit;
-	private Coordonnee coordonnee;
+	private Decor decor;
+	private Unit unit;
+	private Coordonnees coordonnees;
 
-	// CONSTRUCTEUR 
+	// CONSTRUCTEUR
 
 	public boolean isEmpty() {
-		if (this.decors.getNom().equals("UnitVoid") && unit.getNom().equals("DecorVoid")) {
+
+		return this.decor.getNom().equals("UnitVoid") && unit.getNom().equals("DecorVoid");
+	}
+
+	public boolean isPraticable(Unit u) {
+		if (decor.getNom().equals("Grass") && unit.getNom().equals("UnitVoid")) {
+
+			// test sur u
+
 			return true;
 		}
 		return false;
-	}
-
-	public boolean isPraticable(UnitABS u) {
-		if (decors.getNom().equals("Grass") && unit.getNom().equals("UnitVoid")) {
-			return true;
-		}
-		return false;
 
 	}
 
-	public DecorABS getDecors() {
-		return decors;
+	public Decor getDecor() {
+		return decor;
 	}
 
-	public void setDecors(DecorABS decors) {
-		this.decors = decors;
+	public void setDecor(Decor decor) {
+		this.decor = decor;
 	}
 
-	public UnitABS getUnit() {
+	public Unit getUnit() {
 		return unit;
 	}
 
-	public void setUnit(UnitABS unit) {
-		this.unit = unit;
+	public void setUnit(Unit u) {
+		this.unit = u;
 	}
-
-
-
 
 }

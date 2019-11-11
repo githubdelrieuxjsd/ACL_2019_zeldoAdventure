@@ -1,47 +1,46 @@
 package model;
 
 public class Board {
-	
-	private int nbCaseHorizontaly;
-	private int nbCaseVerticaly;
-	
+
+	private int nbCaseHorizontal;
+	private int nbCaseVertical;
+
 	private Case[][] board;
-	
-	public Board(int nbCaseHorizontaly, int nbCaseVerticaly) {
-		this.nbCaseHorizontaly = nbCaseHorizontaly ;
-		this.nbCaseVerticaly = nbCaseVerticaly ;
-		this.board = new Case[nbCaseHorizontaly][nbCaseVerticaly];
+
+	public Board(int nbCaseHorizontal, int nbCaseVertical) {
+		this.nbCaseHorizontal = nbCaseHorizontal;
+		this.nbCaseVertical = nbCaseVertical;
+		this.board = new Case[nbCaseHorizontal][nbCaseVertical];
 		for (Case[] listCase : this.board) {
 			for (Case c : listCase) {
-				c.setDecors(new Grass());
+				c.setDecor(new Grass());
 				c.setUnit(new UnitVoid());
-				
+
 			}
 		}
 	}
-	
-	
-	// GETCASEUP / DOWN 
+
+	// GETCASEUP / DOWN
 	/*
-	public Case getCaseUp(Case c){
-		
-		
-	}
-*/
-	public int getNbCaseHorizontaly() {
-		return nbCaseHorizontaly;
-	}
-
-	public void setNbCaseHorizontaly(int nbCaseHorizontaly) {
-		this.nbCaseHorizontaly = nbCaseHorizontaly;
+	 * public Case getCaseUp(Case c){
+	 * 
+	 * 
+	 * }
+	 */
+	public int getNbCaseHorizontal() {
+		return nbCaseHorizontal;
 	}
 
-	public int getNbCaseVerticaly() {
-		return nbCaseVerticaly;
+	public void setNbCaseHorizontal(int nbCaseHorizontal) {
+		this.nbCaseHorizontal = nbCaseHorizontal;
 	}
 
-	public void setNbCaseVerticaly(int nbCaseVerticaly) {
-		this.nbCaseVerticaly = nbCaseVerticaly;
+	public int getNbCaseVertical() {
+		return nbCaseVertical;
+	}
+
+	public void setNbCaseVertical(int nbCaseVertical) {
+		this.nbCaseVertical = nbCaseVertical;
 	}
 
 	public Case[][] getBoard() {
@@ -51,7 +50,5 @@ public class Board {
 	public void setBoard(Case[][] board) {
 		this.board = board;
 	}
-	
-	
 
 }

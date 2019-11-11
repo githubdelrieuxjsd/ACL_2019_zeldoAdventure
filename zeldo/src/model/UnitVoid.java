@@ -1,10 +1,10 @@
 package model;
 
-public class UnitVoid extends UnitABS {
-	
-	public UnitVoid(){
+public class UnitVoid extends Unit {
+
+	public UnitVoid() {
 		this.setNom("UnitVoid");
-		this.setImageURL("* URL Void unit* ");
+		this.setImageURL("Image Unit Void");
 	}
 
 }

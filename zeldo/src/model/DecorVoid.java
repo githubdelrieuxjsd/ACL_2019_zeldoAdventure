@@ -1,10 +1,10 @@
 package model;
 
-public class DecorVoid extends DecorABS {
-	
+public class DecorVoid extends Decor {
+
 	public DecorVoid() {
 		this.setNom("DecorVoid");
-		this.setImageURL(" * image decors void* ");
+		this.setImageURL("Image Decor Void");
 	}
-	
+
 }

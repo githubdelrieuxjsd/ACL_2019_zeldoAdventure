@@ -1,10 +1,10 @@
 package model;
 
-public class Grass extends DecorABS {
-	
+public class Grass extends Decor {
+
 	public Grass() {
 		this.setNom("Grass");
-		this.setImageURL("* URL Grass *");
+		this.setImageURL("Image Decor Grass");
 	}
 
 }
