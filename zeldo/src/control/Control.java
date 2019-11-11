@@ -4,7 +4,7 @@ import model.Board;
 
 public class Control {
 
-	int testcomot;
+	int Salusse;
 
 	private static int tailleCase = 60;
 	public static Board board;
