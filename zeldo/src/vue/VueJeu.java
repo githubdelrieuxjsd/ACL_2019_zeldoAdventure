@@ -1,6 +1,7 @@
 package vue;
 
 import java.awt.Color;
+import java.awt.Font;
 import java.awt.Graphics;
 import java.awt.Image;
 import java.awt.event.ActionEvent;
@@ -10,12 +11,14 @@ import java.awt.event.KeyListener;
 
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
+import javax.swing.JLabel;
 import javax.swing.JPanel;
 
 import control.Control;
 import model.Case;
 
 public class VueJeu extends JPanel {
+	
 	
 	private KeyListener keyListener;
 	private String playerDecision;
@@ -34,23 +37,23 @@ public class VueJeu extends JPanel {
 				switch (e.getKeyCode()) {
 				case KeyEvent.VK_UP:
 					playerDecision = "moveUp";
+					
 					break;
 				case KeyEvent.VK_DOWN:
 					playerDecision = "moveDown";
-
 					break;
 
 				case KeyEvent.VK_RIGHT:
 					playerDecision = "moveRight";
-
 					break;
 				case KeyEvent.VK_LEFT:
 					playerDecision = "moveLeft";
-
 					break;
+					
 				case KeyEvent.VK_ESCAPE:
 					System.exit(0);
 					break;
+					
 				default:
 					;
 				}
