@@ -61,7 +61,7 @@ public class Case {
 
 	@Override
 	public String toString() {
-		return "Case [decors=" + decors.getNom() + ", unit=" + unit.getNom() + ", coordonnee=" + coordonnee + "]";
+		return "coordonnee= " + coordonnee.toString() + "\n unit=" + unit.getNom() + "\n"  + "decors=" + decors.getNom() +"\n";
 	}
 
 

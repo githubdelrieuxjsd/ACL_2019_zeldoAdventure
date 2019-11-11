@@ -3,12 +3,12 @@ package model;
 import java.util.Arrays;
 
 public class Board {
-	
+
 	private int nbCaseHorizontaly;
 	private int nbCaseVerticaly;
-	
+
 	private Case[][] board;
-	
+
 	public Board(int nbCaseHorizontaly, int nbCaseVerticaly) {
 		this.nbCaseHorizontaly = nbCaseHorizontaly ;
 		this.nbCaseVerticaly = nbCaseVerticaly ;
@@ -22,15 +22,15 @@ public class Board {
 			}
 		}
 	}
-	
-	
+
+
 	// GETCASEUP / DOWN 
 	/*
 	public Case getCaseUp(Case c){
-		
-		
+
+
 	}
-*/
+	 */
 	public int getNbCaseHorizontaly() {
 		return nbCaseHorizontaly;
 	}
@@ -58,12 +58,13 @@ public class Board {
 
 	@Override
 	public String toString() {
-		return "Board [nbCaseHorizontaly=" + nbCaseHorizontaly + ", nbCaseVerticaly=" + nbCaseVerticaly + ", board="
-				+ Arrays.toString(board) + "]";
+		String res = new String();
+		for (int k = 0; k<this.nbCaseHorizontaly; k++) {
+			for(int j =0; j<this.nbCaseVerticaly; j++) {
+				res = res + this.board[k][j].toString();
+				System.out.println();
+			}
+		}
+		return res;
 	}
-	
-	
-	
-	
-
 }

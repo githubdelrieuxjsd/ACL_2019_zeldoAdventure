@@ -25,6 +25,12 @@ public class Coordonnee {
 		return y;
 	}
 
+	@Override
+	public String toString() {
+		return "Coordonnee [x=" + x + ", y=" + y + "]";
+	}
+
+	
 	
 
 }
