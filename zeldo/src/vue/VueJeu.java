@@ -5,6 +5,7 @@ import java.awt.Graphics;
 import java.awt.Image;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 
 import javax.swing.ImageIcon;
@@ -24,6 +25,49 @@ public class VueJeu extends JPanel {
 	public VueJeu() {
 		this.setLayout(null);
 		this.setBackground(Color.BLUE);
+		
+		this.addKeyListener(new KeyListener() {
+
+			@Override
+			public void keyPressed(KeyEvent e) {
+				// TODO Auto-generated method stub
+				switch (e.getKeyCode()) {
+				case KeyEvent.VK_UP:
+					playerDecision = "moveUp";
+					break;
+				case KeyEvent.VK_DOWN:
+					playerDecision = "moveDown";
+
+					break;
+
+				case KeyEvent.VK_RIGHT:
+					playerDecision = "moveRight";
+
+					break;
+				case KeyEvent.VK_LEFT:
+					playerDecision = "moveLeft";
+
+					break;
+				case KeyEvent.VK_ESCAPE:
+					System.exit(0);
+					break;
+				default:
+					;
+				}
+			}
+
+			@Override
+			public void keyReleased(KeyEvent e) {
+				// TODO Auto-generated method stub
+			}
+
+			@Override
+			public void keyTyped(KeyEvent e) {
+
+			}
+
+		});
+		this.setFocusable(true);
 	}
 
 	public void paintComponent(Graphics g) {
@@ -46,10 +90,10 @@ public class VueJeu extends JPanel {
 			for(int j=0;j<board.length;j++) {
 				ImageIcon decor = new ImageIcon(board[i][j].getDecor().getImageURL());
 				Image imgD = decor.getImage();
-				g.drawImage(imgD,i*30,j*30,60*3,60*3,null); //x,y,largueur, hauteur,null	
+				g.drawImage(imgD,i*Control.getTailleCase(),j*Control.getTailleCase(),Control.getTailleCase()*3,Control.getTailleCase()*3,null); //x,y,largueur, hauteur,null	
 				ImageIcon unit = new ImageIcon(board[i][j].getDecor().getImageURL());
 				Image imgU = unit.getImage();
-				g.drawImage(imgU,i*30,j*30,60*3,60*3,null); //x,y,largueur, hauteur,null	
+				g.drawImage(imgU,i*Control.getTailleCase(),j*Control.getTailleCase(),Control.getTailleCase()*3,Control.getTailleCase()*3,null); //x,y,largueur, hauteur,null	
 			}
 		}
 		

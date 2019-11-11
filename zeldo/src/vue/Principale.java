@@ -18,8 +18,9 @@ public class Principale {
 		start = new VueMenuStart();
 
 		Control.initPlateau(800, 800);
+		
 		frame.setPreferredSize(new Dimension(800, 800));
-		frame.setLocation(10, 20);
+		frame.setLocation(10, 10);
 
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE); // ferme la fenetre = ferme la console
 		frame.setUndecorated(true); // enleve la barre reduire agrandir fermer et empeche le resize
