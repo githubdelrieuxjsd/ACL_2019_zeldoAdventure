@@ -1,5 +1,7 @@
 package model;
 
+import java.util.Arrays;
+
 public class Board {
 	
 	private int nbCaseHorizontaly;
@@ -52,6 +54,15 @@ public class Board {
 	public void setBoard(Case[][] board) {
 		this.board = board;
 	}
+
+
+	@Override
+	public String toString() {
+		return "Board [nbCaseHorizontaly=" + nbCaseHorizontaly + ", nbCaseVerticaly=" + nbCaseVerticaly + ", board="
+				+ Arrays.toString(board) + "]";
+	}
+	
+	
 	
 	
 
