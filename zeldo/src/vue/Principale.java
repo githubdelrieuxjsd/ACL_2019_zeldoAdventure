@@ -6,6 +6,8 @@ import javax.print.attribute.standard.JobName;
 
 import javax.swing.JFrame;
 
+import control.Control;
+
 public class Principale {
 	
 	private static JFrame frame ;
@@ -16,6 +18,10 @@ public class Principale {
 		
 		frame = new JFrame();
 		start=new VueMenuStart();
+		
+		Control.initPlateau(800,800);
+		
+		
 		frame.setPreferredSize(new Dimension(800,800));
 		frame.setLocation(10,20);
 		
