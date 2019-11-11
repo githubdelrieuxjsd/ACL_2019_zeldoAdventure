@@ -1,11 +1,11 @@
 package model;
 
-public class Hero extends UnitABS {
-	
+
+public class Hero extends Unit {
 
 	public Hero() {
 		this.setNom("Hero");
-		this.setImageURL(" *Image Zeldo* ");
+		this.setImageURL("Image Zeldo");
 	}
 
 }
