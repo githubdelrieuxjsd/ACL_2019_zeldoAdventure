@@ -1,6 +1,7 @@
 package model;
 
-import java.util.Arrays;
+
+//import java.util.Arrays;
 
 public class Board {
 
@@ -26,12 +27,30 @@ public class Board {
 			}
 		}
 	}
+	public Case getCaseUp(Case c) {
+		int x = c.getCoordonnee().getX();
+		int y = c.getCoordonnee().getY();
+		return this.board[x][y-1];
+	}
 
-	/*
-	 * public Case getCaseUp(Case c) {
-	 * 
-	 * }
-	 */
+
+	public Case getCaseDown(Case c) {
+		int x = c.getCoordonnee().getX();
+		int y = c.getCoordonnee().getY();
+		return this.board[x][y+1];
+	}
+
+	public Case getCaseLeft(Case c) {
+		int x = c.getCoordonnee().getX();
+		int y = c.getCoordonnee().getY();
+		return this.board[x-1][y];
+	}
+
+	public Case getCaseRight(Case c) {
+		int x = c.getCoordonnee().getX();
+		int y = c.getCoordonnee().getY();
+		return this.board[x+1][y];
+	}
 
 	int getNbCaseHorizontal() {
 		return nbCaseHorizontal;
@@ -69,3 +88,4 @@ public class Board {
 		return res;
 	}
 }
+

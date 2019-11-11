@@ -6,6 +6,7 @@ public class Case {
 	private Unit unit;
 	private Coordonnee coordonnees;
 
+
 	// CONSTRUCTEUR
 	public Case(Coordonnee coord, Decor decor, Unit unit) {
 		this.coordonnees = coord;
@@ -70,6 +71,7 @@ public class Case {
 	public String toString() {
 		return "coordonnees = " + coordonnees.toString() + "\n unit=" + unit.getNom() + "\n" + "decors="
 				+ decor.getNom() + "\n";
+
 	}
 
 }

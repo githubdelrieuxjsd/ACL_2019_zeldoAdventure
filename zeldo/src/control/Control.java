@@ -71,4 +71,5 @@ public class Control {
 	public static void setTailleCase(int tailleCase) {
 		Control.tailleCase = tailleCase;
 	};
+
 }
