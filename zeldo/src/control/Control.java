@@ -4,11 +4,7 @@ import model.Board;
 
 public class Control {
 
-<<<<<<< HEAD
 
-	int testcomot ;
-
-=======
 	int testcomot;
 
 	private static int tailleCase = 60;
@@ -30,5 +26,5 @@ public class Control {
 		return null;
 
 	};
->>>>>>> branch 'master' of https://github.com/githubdelrieuxjsd/ACL_2019_zeldoAdventure.git
+
 }
