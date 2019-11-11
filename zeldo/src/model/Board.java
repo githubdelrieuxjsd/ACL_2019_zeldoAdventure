@@ -10,22 +10,27 @@ public class Board {
 	private Case[][] board;
 
 	public Board(int nbCaseHorizontal, int nbCaseVertical) {
+
 		this.nbCaseHorizontal = nbCaseHorizontal;
 		this.nbCaseVertical = nbCaseVertical;
+
 		this.board = new Case[nbCaseHorizontal][nbCaseVertical];
-		for (Case[] listCase : this.board) {
-			for (Case c : listCase) {
-				c.setDecor(new Grass());
-				c.setUnit(new UnitVoid());
+		for (int kx = 0; kx < nbCaseHorizontal; kx++) {
+			for (int ky = 0; ky < nbCaseVertical; ky++) {
+				this.board[kx][ky] = new Case(new Coordonnee(kx, ky));
+				this.board[kx][ky].setDecor(new Grass());
+				this.board[kx][ky].setUnit(new UnitVoid());
+				this.board[kx][ky].setCoordonnee(new Coordonnee(kx, ky));
+
 			}
 		}
 	}
 
 	/*
-	public Case getCaseUp(Case c) {
-
-	}
-	*/
+	 * public Case getCaseUp(Case c) {
+	 * 
+	 * }
+	 */
 
 	int getNbCaseHorizontal() {
 		return nbCaseHorizontal;
