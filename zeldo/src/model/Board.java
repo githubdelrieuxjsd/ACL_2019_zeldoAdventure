@@ -11,11 +11,12 @@ public class Board {
 		this.nbCaseHorizontaly = nbCaseHorizontaly ;
 		this.nbCaseVerticaly = nbCaseVerticaly ;
 		this.board = new Case[nbCaseHorizontaly][nbCaseVerticaly];
-		for (Case[] listCase : this.board) {
-			for (Case c : listCase) {
-				c.setDecors(new Grass());
-				c.setUnit(new UnitVoid());
-				
+		for (int kx=0; kx<nbCaseHorizontaly; kx++) {
+			for (int ky=0; ky<nbCaseVerticaly; ky++) {
+				this.board[kx][ky]= new Case(new Coordonnee(kx,ky));
+				this.board[kx][ky].setDecors(new Grass());
+				this.board[kx][ky].setUnit(new UnitVoid());
+				this.board[kx][ky].setCoordonnee(new Coordonnee(kx,ky));
 			}
 		}
 	}

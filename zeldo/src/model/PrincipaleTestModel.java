@@ -8,6 +8,16 @@ public class PrincipaleTestModel {
 		Grass grass = new Grass ();
 		System.out.println(grass.getNom());
 		
+		Board board = new Board(3,6);
+		 
+		for (int k = 0; k<3; k++) {
+			for(int j =0; j<6;j++) {
+				board.getBoard()[k][j].toString();
+				System.out.println();
+			}
+			
+		}
+		
 
 	}
 	
