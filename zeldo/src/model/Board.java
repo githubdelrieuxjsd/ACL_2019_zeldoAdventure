@@ -20,9 +20,17 @@ public class Board {
 		for (int kx = 0; kx < nbCaseHorizontal; kx++) {
 			for (int ky = 0; ky < nbCaseVertical; ky++) {
 				this.board[kx][ky] = new Case(new Coordonnee(kx, ky));
-				this.board[kx][ky].setDecor(new Grass());
+				
+				//#
+				if (ky == 3 || kx == 5 || kx == 6 || kx == 4) {
+					this.board[kx][ky].setDecor(new Grass());
+				}else {
+					this.board[kx][ky].setDecor(new Tree());
+				}
+				
+				
 				this.board[kx][ky].setUnit(new UnitVoid());
-				this.board[kx][ky].setCoordonnee(new Coordonnee(kx, ky));
+				//this.board[kx][ky].setCoordonnee(new Coordonnee(kx, ky));
 
 			}
 		}
@@ -52,7 +60,7 @@ public class Board {
 		return this.board[x+1][y];
 	}
 
-	int getNbCaseHorizontal() {
+	public int getNbCaseHorizontal() {
 		return nbCaseHorizontal;
 	}
 

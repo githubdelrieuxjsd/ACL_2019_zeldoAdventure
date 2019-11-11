@@ -4,7 +4,9 @@ import java.awt.event.KeyEvent;
 
 import model.Board;
 import model.Case;
+import model.Coordonnee;
 import model.Hero;
+import model.Tree;
 
 public class Control {
 
@@ -19,7 +21,12 @@ public class Control {
 		int nbCaseVerti = tailleVerti / getTailleCase();
 
 		board = new Board(nbCaseHori, nbCaseVerti);
-		hero = new Hero();
+		
+		//#
+		hero = new Hero( new Coordonnee(5,5) );
+		board.getBoard()[5][5].setUnit(hero);
+		
+
 	}
 
 	public static String verifierPlayerDecision(String commande) {
@@ -28,26 +35,26 @@ public class Control {
 		String rslt = "nothing";
 		switch (commande) {
 		case "moveUp":
-			if (hero.getCoordonnee().getX() != 0
-					&& plateau[hero.getCoordonnee().getX() - 1][hero.getCoordonnee().getY()].isPraticable(hero)) {
+			if (hero.getCoordonnee().getY() != 0
+					&& plateau[hero.getCoordonnee().getX() ][hero.getCoordonnee().getY() -1].isPraticable(hero)) {
 				rslt = "moveUp";
 			}
 			break;
 		case "moveDown":
-			if ((hero.getCoordonnee().getX() != plateau.length - 1)
-					&& plateau[hero.getCoordonnee().getX() + 1][hero.getCoordonnee().getY()].isPraticable(hero)) {
+			if ((hero.getCoordonnee().getY() != plateau.length - 1)
+					&& plateau[hero.getCoordonnee().getX()][hero.getCoordonnee().getY() +1].isPraticable(hero)) {
 				rslt = "moveDown";
 			}
 			break;
 		case "moveRight":
-			if ((hero.getCoordonnee().getY() != plateau[0].length - 1)
-					&& plateau[hero.getCoordonnee().getX()][hero.getCoordonnee().getY() + 1].isPraticable(hero)) {
+			if ((hero.getCoordonnee().getX() != plateau[0].length - 1)
+					&& plateau[hero.getCoordonnee().getX() + 1][hero.getCoordonnee().getY()].isPraticable(hero)) {
 				rslt = "moveRight";
 			}
 			break;
 		case "moveLeft":
-			if (hero.getCoordonnee().getY() != 0
-					&& plateau[hero.getCoordonnee().getX()][hero.getCoordonnee().getY() - 1].isPraticable(hero)) {
+			if (hero.getCoordonnee().getX() != 0
+					&& plateau[hero.getCoordonnee().getX() - 1][hero.getCoordonnee().getY()].isPraticable(hero)) {
 				rslt = "moveLeft";
 			}
 			break;
@@ -58,10 +65,22 @@ public class Control {
 
 	}
 
-	static String action(String playerDecision) {
-
+	
+	//#
+	public static String action(String playerDecision) {
+		if (  playerDecision.equals("moveLeft") ){
+			hero.move(board, board.getCaseLeft(new Case (hero.getCoordonnee())));
+		}
+		if (  playerDecision.equals("moveRight") ){
+			hero.move(board, board.getCaseRight(new Case (hero.getCoordonnee())));
+		}
+		if (  playerDecision.equals("moveUp") ){
+			hero.move(board, board.getCaseUp(new Case (hero.getCoordonnee())));
+		}
+		if (  playerDecision.equals("moveDown") ){
+			hero.move(board, board.getCaseDown(new Case (hero.getCoordonnee())));
+		}
 		return "nothing";
-
 	}
 
 	public static int getTailleCase() {

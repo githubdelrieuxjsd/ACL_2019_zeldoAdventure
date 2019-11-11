@@ -4,7 +4,7 @@ public class Tree extends Decor {
 
 	public Tree() {
 		this.setNom("Tree");
-		this.setImageURL("Image Decor Tree");
+		this.setImageURL("hyrule/block/tree.png");
 	}
 
 }

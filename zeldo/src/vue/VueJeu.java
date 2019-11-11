@@ -20,12 +20,16 @@ import model.Case;
 public class VueJeu extends JPanel {
 
 	private KeyListener keyListener;
-	private String playerDecision;
+	//#
+	private String playerDecision = "nothing";
 	private JButton exitBtn;
 
 	public VueJeu() {
 		this.setLayout(null);
 		this.setBackground(Color.BLUE);
+		//#
+		this.setBackground(new Color(147, 117, 56));
+
 
 		this.addKeyListener(new KeyListener() {
 
@@ -74,8 +78,12 @@ public class VueJeu extends JPanel {
 		super.paintComponent(g);
 
 		paintBoard(g);
+		
+		// # 
+		playerDecision = Control.action(this.playerDecision);
+		
 		try {
-			Thread.sleep(1000); // ms
+			Thread.sleep(32); // ms
 		} catch (InterruptedException e) {
 			e.printStackTrace();
 		}
@@ -85,15 +93,16 @@ public class VueJeu extends JPanel {
 
 	public void paintBoard(Graphics g) {
 		Case[][] board = Control.board.getBoard();
-		for (int i = 0; i < board[0].length; i++) {
-			for (int j = 0; j < board.length; j++) {
+		for (int i = 0; i < Control.board.getNbCaseHorizontal() ; i++) {
+			for (int j = 0; j <Control.board.getNbCaseVertical() ; j++) {
 				ImageIcon decor = new ImageIcon(board[i][j].getDecor().getImageURL());
 				Image imgD = decor.getImage();
-				g.drawImage(imgD, i * Control.getTailleCase(), j * Control.getTailleCase(), Control.getTailleCase() * 3,
+				g.drawImage(imgD, (i-1) * Control.getTailleCase(), (j-1) * Control.getTailleCase(), Control.getTailleCase() * 3,
 						Control.getTailleCase() * 3, null); // x,y,largueur, hauteur,null
-				ImageIcon unit = new ImageIcon(board[i][j].getDecor().getImageURL());
+				
+				ImageIcon unit = new ImageIcon(board[i][j].getUnit().getImageURL());
 				Image imgU = unit.getImage();
-				g.drawImage(imgU, i * Control.getTailleCase(), j * Control.getTailleCase(), Control.getTailleCase() * 3,
+				g.drawImage(imgU, (i-1) * Control.getTailleCase(), (j-1) * Control.getTailleCase(), Control.getTailleCase() * 3,
 						Control.getTailleCase() * 3, null); // x,y,largueur, hauteur,null
 			}
 		}
