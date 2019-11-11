@@ -2,8 +2,6 @@ package vue;
 
 import java.awt.Dimension;
 
-import javax.print.attribute.standard.JobName;
-
 import javax.swing.JFrame;
 
 import control.Control;
