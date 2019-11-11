@@ -20,6 +20,8 @@ import model.Case;
 public class VueJeu extends JPanel {
 	
 	
+	
+	
 	private KeyListener keyListener;
 	private String playerDecision;
 	private JButton exitBtn;
@@ -29,25 +31,26 @@ public class VueJeu extends JPanel {
 		this.setLayout(null);
 		this.setBackground(Color.BLUE);
 		
+		
+		
+		
 		this.addKeyListener(new KeyListener() {
 
 			@Override
 			public void keyPressed(KeyEvent e) {
-				// TODO Auto-generated method stub
+
 				switch (e.getKeyCode()) {
 				case KeyEvent.VK_UP:
-					playerDecision = "moveUp";
-					
+					playerDecision=	Control.verifierPlayerDecision("moveUp");
 					break;
 				case KeyEvent.VK_DOWN:
-					playerDecision = "moveDown";
+					playerDecision=	Control.verifierPlayerDecision("moveDown");		
 					break;
-
 				case KeyEvent.VK_RIGHT:
-					playerDecision = "moveRight";
+					playerDecision=	Control.verifierPlayerDecision("moveRight");	
 					break;
 				case KeyEvent.VK_LEFT:
-					playerDecision = "moveLeft";
+					playerDecision=	Control.verifierPlayerDecision("moveLeft");		
 					break;
 					
 				case KeyEvent.VK_ESCAPE:
@@ -57,6 +60,7 @@ public class VueJeu extends JPanel {
 				default:
 					;
 				}
+				
 			}
 
 			@Override
@@ -70,7 +74,7 @@ public class VueJeu extends JPanel {
 			}
 
 		});
-		this.setFocusable(true);
+		this.setFocusable(true); //important pour le bon fonctionnement 
 	}
 
 	public void paintComponent(Graphics g) {

@@ -56,6 +56,7 @@ public class VueMenuStart extends JPanel {
 		Principale.getFrame().setContentPane(jeuPane); //donner panneau jeu dans principale frame
 		Principale.getFrame().pack();
 		this.updateUI(); //update principale frame
+		jeuPane.requestFocus(); // important pour focus le clavier
 		
 	}
 	

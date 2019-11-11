@@ -9,4 +9,8 @@ public class Hero extends Unit {
 		this.setImageURL("Image Zeldo");
 	}
 
+	
+	public Coordonnee getCoordonnee() {
+        return null ;
+    }
 }
