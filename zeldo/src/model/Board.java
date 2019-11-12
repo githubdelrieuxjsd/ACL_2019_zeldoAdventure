@@ -38,6 +38,21 @@ public class Board {
 			this.board[unit.getCoordonnee().getX()][unit.getCoordonnee().getY()].setUnit(unit);
 		}
 	}
+	
+	public void addDecorRandom(Decor decor, int nombreRandom) {
+		for (int i =0; i<nombreRandom; i++) {
+			this.addDecor(decor, new Coordonnee(0,nbCaseHorizontal-1, 0, nbCaseVertical-1));
+		}
+	}
+	
+	public void completeGrass() {
+		for(int i=0; i<this.nbCaseHorizontal; i++) {
+			for(int j =0; j<this.nbCaseVertical; j++) {
+				addDecor(new Grass(), new Coordonnee(i,j));
+			}
+		}
+	}
+	
 
 	public Case getCaseUp(Case c) {
 		int x = c.getCoordonnee().getX();

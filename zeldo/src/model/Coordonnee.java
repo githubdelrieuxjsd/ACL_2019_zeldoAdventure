@@ -15,6 +15,13 @@ public class Coordonnee {
 		this.x = x;
 		this.y = y;
 	}
+	
+	public  Coordonnee(int minX, int maxX, int minY, int maxY) {
+		int x = minX + (int)(Math.random()*((maxX-minX)+1));
+		int y = minY + (int)(Math.random()*((maxY-minY)+1));
+		this.x = x;
+		this.y = y;
+	}
 
 	private int[] getCoordonnee() {
 		int[] result = { this.x, this.y };

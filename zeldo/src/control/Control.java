@@ -18,15 +18,32 @@ public class Control {
 	public static void initPlateau(int tailleHoriz, int tailleVerti) {
 
 		int nbCaseHori = tailleHoriz / getTailleCase();
-		int nbCaseVerti = tailleVerti / getTailleCase();
+		int nbCaseVerti = tailleVerti / getTailleCase()-1;
 
 		board = new Board(nbCaseHori, nbCaseVerti);
-		
-		//#
-		hero = new Hero( new Coordonnee(5,5) );
-		board.getBoard()[5][5].setUnit(hero);
-		
+		board.addDecorRandom(new Tree(), 20);
+		board.completeGrass();
 
+	}
+	
+	public static void placerHero() {
+		boolean placer = false;
+		int x= 0;
+		int y =0;
+		hero = new Hero(new Coordonnee(x,y));
+		while(!placer) {
+			if (board.getBoard()[x][y].isPraticable(hero)) {
+				board.addUnit(hero);
+				placer = true;
+			}
+			else {
+				x++;
+				if (x==board.getNbCaseHorizontal()-1) {
+					y++;
+				}
+				hero.setCoordonnee(new Coordonnee(x,y));
+			}
+		}
 	}
 
 	public static String verifierPlayerDecision(String commande) {
@@ -41,13 +58,13 @@ public class Control {
 			}
 			break;
 		case "moveDown":
-			if ((hero.getCoordonnee().getY() != plateau.length - 1)
+			if ((hero.getCoordonnee().getY() != board.getNbCaseVertical()-1)
 					&& plateau[hero.getCoordonnee().getX()][hero.getCoordonnee().getY() +1].isPraticable(hero)) {
 				rslt = "moveDown";
 			}
 			break;
 		case "moveRight":
-			if ((hero.getCoordonnee().getX() != plateau[0].length - 1)
+			if ((hero.getCoordonnee().getX() != board.getNbCaseHorizontal()-1)
 					&& plateau[hero.getCoordonnee().getX() + 1][hero.getCoordonnee().getY()].isPraticable(hero)) {
 				rslt = "moveRight";
 			}

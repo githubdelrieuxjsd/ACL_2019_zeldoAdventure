@@ -18,6 +18,8 @@ public class Principale {
 		start = new VueMenuStart();
 
 		Control.initPlateau(800, 800);
+		Control.placerHero();
+		// Control is an illusion
 		
 		frame.setPreferredSize(new Dimension(800, 800));
 		frame.setLocation(10, 10);
