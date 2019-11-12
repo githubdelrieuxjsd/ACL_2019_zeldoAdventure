@@ -21,13 +21,13 @@ public class Hero extends Unit implements Move {
 	}
 
 	
-	public void setCoord(Coordonnee coord) {
+	public void setCoordonnee(Coordonnee coord) {
 		this.coordonnee = coord;
 	}
 
 	public void move(Board board, Case nextCase) {
 		board.getBoard()[this.getCoordonnee().getX()][this.getCoordonnee().getY()].setUnit(new UnitVoid());
-		this.setCoord(nextCase.getCoordonnee());
+		this.setCoordonnee(nextCase.getCoordonnee());
 		board.getBoard()[nextCase.getCoordonnee().getX()][nextCase.getCoordonnee().getY()]
 				.setUnit(new Hero(nextCase.getCoordonnee()));
 
