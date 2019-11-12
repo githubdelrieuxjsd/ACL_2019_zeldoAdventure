@@ -20,14 +20,14 @@ import model.Case;
 public class VueJeu extends JPanel {
 
 	private KeyListener keyListener;
-	//#
+	private VueMenuStart vueStart;
 	private String playerDecision = "nothing";
 	private JButton exitBtn;
 
 	public VueJeu() {
+		
 		this.setLayout(null);
 		this.setBackground(Color.BLUE);
-		//#
 		this.setBackground(new Color(147, 117, 56));
 
 
@@ -49,11 +49,14 @@ public class VueJeu extends JPanel {
 				case KeyEvent.VK_LEFT:
 					playerDecision = Control.verifierPlayerDecision("moveLeft");
 					break;
-
+					
 				case KeyEvent.VK_ESCAPE:
-					System.exit(0);
+					vueStart = new VueMenuStart(); //revenir sur le menu start avec escape
+					exitJeu();
 					break;
 
+				case KeyEvent.VK_Z:
+					playerDecision = "attack";
 				default:
 					;
 				}
@@ -107,5 +110,13 @@ public class VueJeu extends JPanel {
 			}
 		}
 
+	}
+	
+	private void exitJeu() {
+		Principale.getFrame().setContentPane(vueStart);
+		Principale.getFrame().pack();
+		this.updateUI();
+		vueStart.requestFocus();
+		
 	}
 }
