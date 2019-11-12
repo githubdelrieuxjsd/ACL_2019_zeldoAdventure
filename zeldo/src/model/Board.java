@@ -16,25 +16,29 @@ public class Board {
 		this.nbCaseVertical = nbCaseVertical;
 
 		this.board = new Case[nbCaseHorizontal][nbCaseVertical];
-		
+
 		for (int kx = 0; kx < nbCaseHorizontal; kx++) {
 			for (int ky = 0; ky < nbCaseVertical; ky++) {
 				this.board[kx][ky] = new Case(new Coordonnee(kx, ky));
-				
-				//#
-				if (ky == 3 || kx == 5 || kx == 6 || kx == 4) {
-					this.board[kx][ky].setDecor(new Grass());
-				}else {
-					this.board[kx][ky].setDecor(new Tree());
-				}
-				
-				
+				this.board[kx][ky].setDecor(new DecorVoid());
 				this.board[kx][ky].setUnit(new UnitVoid());
-				//this.board[kx][ky].setCoordonnee(new Coordonnee(kx, ky));
 
 			}
 		}
 	}
+
+	public void addDecor(Decor decor, Coordonnee coordonnee) {
+		if (this.board[coordonnee.getX()][coordonnee.getY()].getDecor().getNom().equals("DecorVoid")) {
+			this.board[coordonnee.getX()][coordonnee.getY()].setDecor(decor);
+		}
+	}
+
+	public void addUnit(Unit unit) {
+		if(this.board[unit.getCoordonnee().getX()][unit.getCoordonnee().getY()].getUnit().getNom().equals("UnitVoid")) {
+			this.board[unit.getCoordonnee().getX()][unit.getCoordonnee().getY()].setUnit(unit);
+		}
+	}
+
 	public Case getCaseUp(Case c) {
 		int x = c.getCoordonnee().getX();
 		int y = c.getCoordonnee().getY();
