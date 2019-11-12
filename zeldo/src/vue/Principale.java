@@ -6,6 +6,8 @@ import javax.swing.JFrame;
 
 import control.Control;
 
+// Version 1.1.2 Operationnelle
+
 public class Principale {
 
 	private static JFrame frame;
