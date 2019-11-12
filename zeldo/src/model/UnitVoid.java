@@ -4,7 +4,7 @@ public class UnitVoid extends Unit {
 
 	public UnitVoid() {
 		this.setNom("UnitVoid");
-		this.setImageURL("Image Unit Void");
+		this.setImageURL(" url void unite");
 	}
 
 }

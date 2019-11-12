@@ -4,7 +4,7 @@ public class DecorVoid extends Decor {
 
 	public DecorVoid() {
 		this.setNom("DecorVoid");
-		this.setImageURL("Image Decor Void");
+		this.setImageURL("hyrule/decorVoid/decorVoid.png");
 	}
 
 }
