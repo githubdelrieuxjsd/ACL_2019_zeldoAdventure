@@ -7,10 +7,6 @@ public class UnitVoid extends Unit {
 		this.setImageURL(" url void unite");
 	}
 
-	@Override
-	protected void perdreVie() {
-		// TODO Auto-generated method stub
-		
-	}
+	
 
 }

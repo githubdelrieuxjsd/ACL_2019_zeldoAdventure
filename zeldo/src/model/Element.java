@@ -21,4 +21,5 @@ public abstract class Element {
 		this.imageURL = imageURL;
 	}
 
+	
 }

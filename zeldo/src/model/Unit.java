@@ -1,8 +1,11 @@
 package model;
 
 public abstract class Unit extends Element {
+
 	private Coordonnee coordonnee;
 	private Direction direction;
+	// vie max
+
 	
 	public Coordonnee getCoordonnee() {
 		return coordonnee;
@@ -13,7 +16,7 @@ public abstract class Unit extends Element {
 		this.coordonnee = coord;
 	}
 
-
-	protected abstract void perdreVie();
+// getter setter direction 
+	
 
 }

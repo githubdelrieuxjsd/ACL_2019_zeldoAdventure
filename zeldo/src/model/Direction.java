@@ -2,34 +2,31 @@ package model;
 
 public class Direction {
 	
-	String direction;
+	private String direction;
 	
 	public Direction(String direction) {
 		switch(direction.toUpperCase()) {
 		case "UP":
 			this.direction = "up";
-			System.out.println(this.direction);
+			//System.out.println(this.direction);
 			break;
 		case "DOWN":
 			this.direction = "down";
-			System.out.println(this.direction);
+			//System.out.println(this.direction);
 			break;
-		case "RIGHTt":
+		case "RIGHT":
 			this.direction = "right";
-			System.out.println(this.direction);
-
+			//System.out.println(this.direction);
 			break;
 		case "LEFT":
 			this.direction = "left";
-			System.out.println(this.direction);
+			//System.out.println(this.direction);
 			break;
 		default:
 			this.direction = "down";
-			System.out.println(this.direction);
+			//System.out.println(this.direction);
 			break;
 		}
-		
-		
 	}
 	
 	public String getDirection() {
@@ -38,6 +35,6 @@ public class Direction {
 
 	public void setDirection(String direction) {
 		this.direction = direction;
-	} 
+	}
 
 }

@@ -18,12 +18,14 @@ public class Control {
 	public static void initPlateau(int tailleHoriz, int tailleVerti) {
 
 		int nbCaseHori = tailleHoriz / getTailleCase();
-		int nbCaseVerti = tailleVerti / getTailleCase()-1;
+		int nbCaseVerti = tailleVerti / getTailleCase();
 
 		board = new Board(nbCaseHori, nbCaseVerti);
 		board.addDecorRandom(new Tree(), 20);
 		board.completeGrass();
 
+		
+		
 	}
 	
 	public static void placerHero() {
@@ -52,24 +54,29 @@ public class Control {
 		String rslt = "nothing";
 		switch (commande) {
 		case "moveUp":
+			
+			
 			if (hero.getCoordonnee().getY() != 0
 					&& plateau[hero.getCoordonnee().getX() ][hero.getCoordonnee().getY() -1].isPraticable(hero)) {
 				rslt = "moveUp";
 			}
 			break;
 		case "moveDown":
+			
 			if ((hero.getCoordonnee().getY() != board.getNbCaseVertical()-1)
 					&& plateau[hero.getCoordonnee().getX()][hero.getCoordonnee().getY() +1].isPraticable(hero)) {
 				rslt = "moveDown";
 			}
 			break;
 		case "moveRight":
+			
 			if ((hero.getCoordonnee().getX() != board.getNbCaseHorizontal()-1)
 					&& plateau[hero.getCoordonnee().getX() + 1][hero.getCoordonnee().getY()].isPraticable(hero)) {
 				rslt = "moveRight";
 			}
 			break;
 		case "moveLeft":
+			
 			if (hero.getCoordonnee().getX() != 0
 					&& plateau[hero.getCoordonnee().getX() - 1][hero.getCoordonnee().getY()].isPraticable(hero)) {
 				rslt = "moveLeft";
@@ -79,7 +86,6 @@ public class Control {
 			;
 		}
 		return rslt;
-
 	}
 
 	

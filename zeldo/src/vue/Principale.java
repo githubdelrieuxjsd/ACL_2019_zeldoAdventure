@@ -19,11 +19,11 @@ public class Principale {
 		frame = new JFrame();
 		start = new VueMenuStart();
 
-		Control.initPlateau(800, 800);
+		Control.initPlateau(15*80, 800);
 		Control.placerHero();
 		// Control is an illusion
 		
-		frame.setPreferredSize(new Dimension(800, 800));
+		frame.setPreferredSize(new Dimension(15*80, 800));
 		frame.setLocation(10, 10);
 
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE); // ferme la fenetre = ferme la console
