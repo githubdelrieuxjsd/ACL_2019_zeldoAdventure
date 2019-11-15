@@ -114,7 +114,21 @@ public class Board {
 		return res;
 	}
 
-	public Case getCaseDirection(Case c) {
+	public Case getCaseDirection(Unit u) {
+		Case c = this.getBoard()[u.getCoordonnee().getX()][u.getCoordonnee().getY()];
+		switch(u.getDirection().getDirection()) {
+		case"up":
+			return this.getCaseUp(c);
+		case"right":
+			return this.getCaseRight(c);
+		case"down":
+			return this.getCaseDown(c);
+		case"left":
+			return this.getCaseLeft(c);
+			default : 
+				System.out.println("Board.getCaseDirection :" + c.getUnit().getDirection().getDirection());
+				// error
+		}
 		return null;
 	}
 	

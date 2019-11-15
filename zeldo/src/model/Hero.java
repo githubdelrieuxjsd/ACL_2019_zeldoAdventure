@@ -14,7 +14,8 @@ public class Hero extends Unit implements Move,Life {
 		this.setDirection(new Direction("right"));
 	}
 
-	public void move(Board board, Case nextCase) {
+	public void move(Board board) {
+		Case nextCase= board.getCaseDirection(this);
 		board.getBoard()[this.getCoordonnee().getX()][this.getCoordonnee().getY()].setUnit(new UnitVoid());
 		this.setCoordonnee(nextCase.getCoordonnee());
 		board.getBoard()[nextCase.getCoordonnee().getX()][nextCase.getCoordonnee().getY()]

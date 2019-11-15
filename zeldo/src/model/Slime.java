@@ -1,33 +1,30 @@
 package model;
 
-public class Gobelin extends Monster implements Move{
-
-	public Gobelin(Coordonnee c) {
-		
-		this.setNom("Gobelin");
-		this.setImageURL("hyrule/goblin/beat/L1.png");
+public class Slime extends Monster implements Move{
+	
+	public Slime(Coordonnee c) {
+		this.setNom("Slime");
+		this.setImageURL("hyrule/tomato/beat/Down/3.png");
 		this.setCoordonnee(c);
 		this.setDirection(new Direction("left"));
 		this.setLifeMax(5);
 		this.setLife(this.getLifeMax());
-		
 	}
-	
+
+	@Override
 	public void loseLife() {
-		this.setLife(this.getLife()-1);
-		if(this.getLife()<=0) {
-			this.setLife(this.getLifeMax());
-		}
+		// TODO Auto-generated method stub
+		
 	}
 
 	@Override
 	public void move(Board board) {
-		this.randomDirection();
+		this.rotateDirection90Right();
 		Case nextCase= board.getCaseDirection(this);
 		if (nextCase.isPraticable(this)) {
 			board.getBoard()[this.getCoordonnee().getX()][this.getCoordonnee().getY()].setUnit(new UnitVoid());
 			this.setCoordonnee(nextCase.getCoordonnee());
-			board.getBoard()[nextCase.getCoordonnee().getX()][nextCase.getCoordonnee().getY()].setUnit(new Hero(nextCase.getCoordonnee()));
+			board.getBoard()[nextCase.getCoordonnee().getX()][nextCase.getCoordonnee().getY()].setUnit(new Slime(nextCase.getCoordonnee()));
 			
 		}
 		else {
@@ -36,29 +33,27 @@ public class Gobelin extends Monster implements Move{
 		
 	}
 	
-	public void randomDirection() {
-		int rng = 0 + (int)(Math.random()*((3-0)+1));
-		switch (rng) {
-		case 0:
-			this.setDirection(new Direction("up"));
-			break;
-		case 1:
+	public void rotateDirection90Right() {
+		switch(this.getDirection().getDirection()) {
+		case "up":
 			this.setDirection(new Direction("right"));
 			break;
-		case 2:
+		case "right":
 			this.setDirection(new Direction("down"));
 			break;
-		case 3:
+		case "down":
 			this.setDirection(new Direction("left"));
 			break;
+		case "left":
+			this.setDirection(new Direction("up"));
+			break;
 		default:
-			// throwError à coder
+				// throwOutException
 		}
 	}
+	
+	
 
-
-
-
+	
 
 }
-
