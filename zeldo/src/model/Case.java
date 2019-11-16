@@ -69,7 +69,7 @@ public class Case {
 
 	@Override
 	public String toString() {
-		return "coordonnees = " + coordonnees.toString() + "\n unit=" + unit.getNom() + "\n" + "decors="
+		return "coordonnees : " + coordonnees.toString() + "\n unit=" + unit.getNom() + "\n" + "decors="
 				+ decor.getNom() + "\n";
 
 	}

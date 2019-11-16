@@ -36,4 +36,7 @@ public class Coordonnee {
 		return y;
 	}
 
+	public String toString() {
+		return "(x,y) = ("+x+","+y+")";
+	}
 }

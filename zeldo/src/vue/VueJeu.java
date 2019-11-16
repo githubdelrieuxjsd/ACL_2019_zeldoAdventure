@@ -56,7 +56,8 @@ public class VueJeu extends JPanel {
 					break;
 
 				case KeyEvent.VK_Z:
-					playerDecision = "attack";
+					playerDecision = Control.verifierPlayerDecision("attack");
+					break;
 				default:
 					;
 				}

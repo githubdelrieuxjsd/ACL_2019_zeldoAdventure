@@ -34,7 +34,8 @@ public class Board {
 	}
 
 	public void addUnit(Unit unit) {
-		if(this.board[unit.getCoordonnee().getX()][unit.getCoordonnee().getY()].getUnit().getNom().equals("UnitVoid")) {
+		if(this.board[unit.getCoordonnee().getX()][unit.getCoordonnee().getY()].getUnit().getNom().equals("UnitVoid")
+				&& this.board[unit.getCoordonnee().getX()][unit.getCoordonnee().getY()].isPraticable(unit)) {
 			this.board[unit.getCoordonnee().getX()][unit.getCoordonnee().getY()].setUnit(unit);
 		}
 	}
@@ -53,13 +54,11 @@ public class Board {
 		}
 	}
 	
-
 	public Case getCaseUp(Case c) {
 		int x = c.getCoordonnee().getX();
 		int y = c.getCoordonnee().getY();
 		return this.board[x][y-1];
 	}
-
 
 	public Case getCaseDown(Case c) {
 		int x = c.getCoordonnee().getX();
@@ -114,5 +113,10 @@ public class Board {
 		}
 		return res;
 	}
+
+	public Case getCaseDirection(Case c) {
+		return null;
+	}
+	
 }
 
