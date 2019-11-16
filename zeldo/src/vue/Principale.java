@@ -1,6 +1,7 @@
 package vue;
 
 import java.awt.Dimension;
+import java.awt.Toolkit;
 
 import javax.swing.JFrame;
 
@@ -19,11 +20,16 @@ public class Principale {
 		frame = new JFrame();
 		start = new VueMenuStart();
 
-		Control.initPlateau(15*80, 800);
+		Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
+		int gamescreenHeight = (int) (screenSize.height*0.8)+80 - (int) (screenSize.height*0.8)%80;		
+		int gamescreenWidth = (int) (screenSize.width*0.8)+80 - (int) (screenSize.width*0.8)%80;
+		
+		
+		Control.initPlateau(gamescreenWidth, gamescreenHeight);
 		Control.placerHero();
 		// Control is an illusion
 		
-		frame.setPreferredSize(new Dimension(15*80, 800));
+		frame.setPreferredSize(new Dimension(gamescreenWidth, gamescreenHeight));
 		frame.setLocation(10, 10);
 
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE); // ferme la fenetre = ferme la console

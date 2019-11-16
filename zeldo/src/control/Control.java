@@ -5,6 +5,7 @@ import java.awt.event.KeyEvent;
 import model.Board;
 import model.Case;
 import model.Coordonnee;
+import model.Direction;
 import model.Hero;
 import model.Tree;
 
@@ -54,31 +55,34 @@ public class Control {
 		String rslt = "nothing";
 		switch (commande) {
 		case "moveUp":
-
+			hero.setDirection(new Direction("up"));
 			if (hero.getCoordonnee().getY() != 0
 					&& plateau[hero.getCoordonnee().getX() ][hero.getCoordonnee().getY() -1].isPraticable(hero)) {
-				rslt = "moveUp";
+				rslt = "move";
 			}
 			break;
 		case "moveDown":
-			
+			hero.setDirection(new Direction("down"));
+
 			if ((hero.getCoordonnee().getY() != board.getNbCaseVertical()-1)
 					&& plateau[hero.getCoordonnee().getX()][hero.getCoordonnee().getY() +1].isPraticable(hero)) {
-				rslt = "moveDown";
+				rslt = "move";
 			}
 			break;
 		case "moveRight":
+			hero.setDirection(new Direction("right"));
 			
 			if ((hero.getCoordonnee().getX() != board.getNbCaseHorizontal()-1)
 					&& plateau[hero.getCoordonnee().getX() + 1][hero.getCoordonnee().getY()].isPraticable(hero)) {
-				rslt = "moveRight";
+				rslt = "move";
 			}
 			break;
 		case "moveLeft":
+			hero.setDirection(new Direction("left"));
 			
 			if (hero.getCoordonnee().getX() != 0
 					&& plateau[hero.getCoordonnee().getX() - 1][hero.getCoordonnee().getY()].isPraticable(hero)) {
-				rslt = "moveLeft";
+				rslt = "move";
 			}
 			break;
 		default:
@@ -88,19 +92,15 @@ public class Control {
 	}
 
 	
-	//#
 	public static String action(String playerDecision) {
-		if (  playerDecision.equals("moveLeft") ){
-			hero.move(board, board.getCaseLeft(new Case (hero.getCoordonnee())));
-		}
-		if (  playerDecision.equals("moveRight") ){
-			hero.move(board, board.getCaseRight(new Case (hero.getCoordonnee())));
-		}
-		if (  playerDecision.equals("moveUp") ){
-			hero.move(board, board.getCaseUp(new Case (hero.getCoordonnee())));
-		}
-		if (  playerDecision.equals("moveDown") ){
-			hero.move(board, board.getCaseDown(new Case (hero.getCoordonnee())));
+		switch (playerDecision) {
+		case "move" :
+			hero.move(board);
+
+			break;
+		case "attack":
+			break;
+		default :
 		}
 		return "nothing";
 	}
