@@ -11,7 +11,7 @@ public class Hero extends Unit implements Move,Life {
 		this.setCoordonnee(c);
 		this.setLifeMax(5);
 		this.setLife(5);
-		this.setDirection(new Direction("right"));
+		this.setDirection(new Direction("left"));
 	}
 
 
@@ -20,7 +20,7 @@ public class Hero extends Unit implements Move,Life {
 		board.getBoard()[this.getCoordonnee().getX()][this.getCoordonnee().getY()].setUnit(new UnitVoid());
 		this.setCoordonnee(nextCase.getCoordonnee());
 		board.getBoard()[nextCase.getCoordonnee().getX()][nextCase.getCoordonnee().getY()]
-				.setUnit(new Hero(nextCase.getCoordonnee()));
+				.setUnit(this);
 	}
 	
 	public void attack(Board board, Direction direction) {
@@ -82,7 +82,11 @@ public class Hero extends Unit implements Move,Life {
 	}
 
 
-	
+	public String  getImageURL () {
+		//System.out.println(this.getDirection().getDirection());
+		return "hyrule/link/beat/"+this.getDirection().getDirection().substring(0, 1).toUpperCase()+"1.png";
+				
+	}
 	
 	
 	

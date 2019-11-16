@@ -4,9 +4,9 @@ public class Slime extends Monster implements Move{
 	
 	public Slime(Coordonnee c) {
 		this.setNom("Slime");
-		this.setImageURL("hyrule/tomato/beat/Down/3.png");
+		this.setImageURL("hyrule/slime/R1.png");
 		this.setCoordonnee(c);
-		this.setDirection(new Direction("left"));
+		this.setDirection(new Direction("right"));
 		this.setLifeMax(5);
 		this.setLife(this.getLifeMax());
 	}

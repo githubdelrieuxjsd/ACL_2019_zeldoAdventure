@@ -8,13 +8,16 @@ import model.Coordonnee;
 import model.Direction;
 import model.Hero;
 import model.Tree;
+import model.Slime;
+import model.Gobelin;
 
 public class Control {
 
 	private static int tailleCase = 80;
 	public static Hero hero;
-
+	public static Slime slime; 
 	public static Board board;
+	public static Gobelin gobelin; 
 
 	public static void initPlateau(int tailleHoriz, int tailleVerti) {
 
@@ -22,10 +25,12 @@ public class Control {
 		int nbCaseVerti = tailleVerti / getTailleCase();
 
 		board = new Board(nbCaseHori, nbCaseVerti);
-		board.addDecorRandom(new Tree(), 20);
+		board.addDecorRandom(new Tree(), 5);
 		board.completeGrass();
-
-		
+		slime = new Slime (new Coordonnee(2,5));
+		board.addUnit( slime );
+		gobelin = new Gobelin (new Coordonnee (5,5));
+		board.addUnit(gobelin);
 		
 	}
 	
@@ -96,7 +101,8 @@ public class Control {
 		switch (playerDecision) {
 		case "move" :
 			hero.move(board);
-
+			slime.move(board);
+			gobelin.move(board);
 			break;
 		case "attack":
 			break;

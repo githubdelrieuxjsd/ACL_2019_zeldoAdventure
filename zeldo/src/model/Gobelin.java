@@ -27,7 +27,7 @@ public class Gobelin extends Monster implements Move{
 		if (nextCase.isPraticable(this)) {
 			board.getBoard()[this.getCoordonnee().getX()][this.getCoordonnee().getY()].setUnit(new UnitVoid());
 			this.setCoordonnee(nextCase.getCoordonnee());
-			board.getBoard()[nextCase.getCoordonnee().getX()][nextCase.getCoordonnee().getY()].setUnit(new Hero(nextCase.getCoordonnee()));
+			board.getBoard()[nextCase.getCoordonnee().getX()][nextCase.getCoordonnee().getY()].setUnit(this);
 			
 		}
 		else {
