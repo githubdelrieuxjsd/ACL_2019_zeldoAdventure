@@ -23,12 +23,7 @@ public class Direction {
 			//System.out.println(this.direction);
 			break;
 		default:
-			this.direction = "down";
-<<<<<<< HEAD
-			//System.out.println(this.direction);
-=======
-			System.out.println("ERROR");
->>>>>>> branch 'david' of https://github.com/githubdelrieuxjsd/ACL_2019_zeldoAdventure.git
+			System.out.println("DIRECTION ERROR :" +direction.toUpperCase());
 			break;
 		}
 	}
@@ -37,14 +32,9 @@ public class Direction {
 		return direction;
 	}
 
-<<<<<<< HEAD
-	public void setDirection(String direction) {
-		this.direction = direction;
-	}
-=======
+
 	public void setDirection(Direction direction) {
 		this.direction = direction.getDirection();
 	} 
->>>>>>> branch 'david' of https://github.com/githubdelrieuxjsd/ACL_2019_zeldoAdventure.git
 
 }

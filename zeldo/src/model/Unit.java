@@ -4,13 +4,33 @@ public abstract class Unit extends Element {
 
 	private Coordonnee coordonnee;
 	private Direction direction;
-<<<<<<< HEAD
-	// vie max
-
-=======
 	private int life;
 	private int lifeMax;
->>>>>>> branch 'david' of https://github.com/githubdelrieuxjsd/ACL_2019_zeldoAdventure.git
+
+	
+	public boolean isMonster() {
+		boolean rslt =false;
+		switch (this.getNom()) {
+		case "Gobelin":
+			rslt=true;
+			break;
+		case "Slime":
+			rslt=true;
+			break;
+		default:
+			break;
+		}
+		return rslt;
+
+	}
+
+	public Direction getDirection() {
+		return this.direction;
+	}
+
+	public void setDirection(Direction direction) {
+		this.direction = direction;
+	}
 	
 	public Coordonnee getCoordonnee() {
 		return coordonnee;
@@ -20,10 +40,6 @@ public abstract class Unit extends Element {
 		this.coordonnee = coord;
 	}
 
-<<<<<<< HEAD
-// getter setter direction 
-	
-=======
 	public int getLifeMax() {
 		return lifeMax;
 	}
@@ -39,27 +55,5 @@ public abstract class Unit extends Element {
 	public void setLife(int life) {
 		this.life = life;
 	}
-
-	public boolean isMonster() {
-		boolean rslt =false;
-		switch (this.getNom()) {
-		case "Gobelin":
-			rslt=true;
-			break;
-		default:
-			break;
-		}
-		return rslt;
-		
-	}
-
-	public Direction getDirection() {
-		return this.direction;
-	}
-
-	public void setDirection(Direction direction) {
-		this.direction = direction;
-	} 
->>>>>>> branch 'david' of https://github.com/githubdelrieuxjsd/ACL_2019_zeldoAdventure.git
 
 }

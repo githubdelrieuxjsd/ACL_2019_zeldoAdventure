@@ -54,8 +54,7 @@ public class Control {
 		String rslt = "nothing";
 		switch (commande) {
 		case "moveUp":
-			
-			
+
 			if (hero.getCoordonnee().getY() != 0
 					&& plateau[hero.getCoordonnee().getX() ][hero.getCoordonnee().getY() -1].isPraticable(hero)) {
 				rslt = "moveUp";
