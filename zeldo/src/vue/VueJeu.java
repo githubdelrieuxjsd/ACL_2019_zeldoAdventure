@@ -16,6 +16,7 @@ import javax.swing.JPanel;
 
 import control.Control;
 import model.Case;
+import model.Direction;
 
 public class VueJeu extends JPanel {
 
@@ -38,25 +39,29 @@ public class VueJeu extends JPanel {
 
 				switch (e.getKeyCode()) {
 				case KeyEvent.VK_UP:
-					playerDecision = Control.verifierPlayerDecision("moveUp");
+					Control.hero.setDirection(new Direction("up"));
+					playerDecision = Control.verifierPlayerDecision("move");
 					break;
 				case KeyEvent.VK_DOWN:
-					playerDecision = Control.verifierPlayerDecision("moveDown");
+					Control.hero.setDirection(new Direction("down"));
+					playerDecision = Control.verifierPlayerDecision("move");
 					break;
 				case KeyEvent.VK_RIGHT:
-					playerDecision = Control.verifierPlayerDecision("moveRight");
+					Control.hero.setDirection(new Direction("right"));
+					playerDecision = Control.verifierPlayerDecision("move");
 					break;
 				case KeyEvent.VK_LEFT:
-					playerDecision = Control.verifierPlayerDecision("moveLeft");
+					Control.hero.setDirection(new Direction("left"));
+					playerDecision = Control.verifierPlayerDecision("move");
+					break;
+				case KeyEvent.VK_D:
+					playerDecision = Control.verifierPlayerDecision("attack");
+
 					break;
 					
 				case KeyEvent.VK_ESCAPE:
 					vueStart = new VueMenuStart(); //revenir sur le menu start avec escape
 					exitJeu();
-					break;
-
-				case KeyEvent.VK_Z:
-					playerDecision = Control.verifierPlayerDecision("attack");
 					break;
 				default:
 					;

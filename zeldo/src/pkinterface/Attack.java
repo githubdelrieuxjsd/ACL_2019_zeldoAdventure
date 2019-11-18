@@ -7,6 +7,6 @@ import model.Board;
 
 public interface Attack {
 	
-	void attack(Board board, Direction direction);
+	void attack(Board board);
 
 }

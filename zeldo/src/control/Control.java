@@ -27,9 +27,10 @@ public class Control {
 		board = new Board(nbCaseHori, nbCaseVerti);
 		board.addDecorRandom(new Tree(), 5);
 		board.completeGrass();
-		slime = new Slime (new Coordonnee(2,5));
+		
+		slime = new Slime (new Coordonnee(10,3));
 		board.addUnit( slime );
-		gobelin = new Gobelin (new Coordonnee (5,5));
+		gobelin = new Gobelin (new Coordonnee (6,5));
 		board.addUnit(gobelin);
 		
 	}
@@ -55,44 +56,27 @@ public class Control {
 	}
 
 	public static String verifierPlayerDecision(String commande) {
+		String rslt = "nothing";
 		Case[][] plateau = board.getBoard();
 
-		String rslt = "nothing";
-		switch (commande) {
-		case "moveUp":
-			hero.setDirection(new Direction("up"));
-			if (hero.getCoordonnee().getY() != 0
-					&& plateau[hero.getCoordonnee().getX() ][hero.getCoordonnee().getY() -1].isPraticable(hero)) {
-				rslt = "move";
-			}
-			break;
-		case "moveDown":
-			hero.setDirection(new Direction("down"));
+		Case caseDevant = board.getCaseDirection(hero);
+		if ( !(caseDevant == null)) {
+			switch (commande) {
+			case "move":
+				if (caseDevant.isPraticable(hero)) {
+					rslt = "move";
+				}
+				break;
+			case "attack" : 
+				if (caseDevant.getUnit().isMonster()) {
+					rslt = "attack" ;
 
-			if ((hero.getCoordonnee().getY() != board.getNbCaseVertical()-1)
-					&& plateau[hero.getCoordonnee().getX()][hero.getCoordonnee().getY() +1].isPraticable(hero)) {
-				rslt = "move";
+				}
+			default:
+				;
 			}
-			break;
-		case "moveRight":
-			hero.setDirection(new Direction("right"));
-			
-			if ((hero.getCoordonnee().getX() != board.getNbCaseHorizontal()-1)
-					&& plateau[hero.getCoordonnee().getX() + 1][hero.getCoordonnee().getY()].isPraticable(hero)) {
-				rslt = "move";
-			}
-			break;
-		case "moveLeft":
-			hero.setDirection(new Direction("left"));
-			
-			if (hero.getCoordonnee().getX() != 0
-					&& plateau[hero.getCoordonnee().getX() - 1][hero.getCoordonnee().getY()].isPraticable(hero)) {
-				rslt = "move";
-			}
-			break;
-		default:
-			;
 		}
+		
 		return rslt;
 	}
 
@@ -105,9 +89,15 @@ public class Control {
 			gobelin.move(board);
 			break;
 		case "attack":
+
+			hero.attack(board);
+			slime.move(board);
+			gobelin.move(board);
 			break;
 		default :
 		}
+		
+
 		return "nothing";
 	}
 

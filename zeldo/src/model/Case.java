@@ -6,7 +6,6 @@ public class Case {
 	private Unit unit;
 	private Coordonnee coordonnees;
 
-
 	// CONSTRUCTEUR
 	public Case(Coordonnee coord, Decor decor, Unit unit) {
 		this.coordonnees = coord;
@@ -20,7 +19,7 @@ public class Case {
 		this.unit = new UnitVoid();
 
 	}
-	
+
 	public Case() {
 		this.decor = new DecorVoid();
 		this.unit = new UnitVoid();
@@ -39,6 +38,7 @@ public class Case {
 
 			return true;
 		}
+
 		return false;
 
 	}

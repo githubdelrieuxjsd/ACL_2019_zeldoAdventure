@@ -49,7 +49,7 @@ public abstract class Unit extends Element {
 	}
 
 	public int getLife() {
-		return lifeMax;
+		return life;
 	}
 
 	public void setLife(int life) {

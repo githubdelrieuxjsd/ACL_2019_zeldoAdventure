@@ -16,7 +16,9 @@ public class Gobelin extends Monster implements Move{
 	public void loseLife() {
 		this.setLife(this.getLife()-1);
 		if(this.getLife()<=0) {
-			this.setLife(this.getLifeMax());
+			//this.setLife(this.getLifeMax());
+			this.setImageURL("hyrule/block/tree.png");
+
 		}
 	}
 
@@ -24,15 +26,18 @@ public class Gobelin extends Monster implements Move{
 	public void move(Board board) {
 		this.randomDirection();
 		Case nextCase= board.getCaseDirection(this);
-		if (nextCase.isPraticable(this)) {
-			board.getBoard()[this.getCoordonnee().getX()][this.getCoordonnee().getY()].setUnit(new UnitVoid());
-			this.setCoordonnee(nextCase.getCoordonnee());
-			board.getBoard()[nextCase.getCoordonnee().getX()][nextCase.getCoordonnee().getY()].setUnit(this);
-			
+		if (!(nextCase == null) ) {
+			if (nextCase.isPraticable(this)) {
+				board.getBoard()[this.getCoordonnee().getX()][this.getCoordonnee().getY()].setUnit(new UnitVoid());
+				this.setCoordonnee(nextCase.getCoordonnee());
+				board.getBoard()[nextCase.getCoordonnee().getX()][nextCase.getCoordonnee().getY()].setUnit(this);
+				
+			}
+			else {
+				// attaquer(nextCase) a coder ...
+			}
 		}
-		else {
-			// attaquer(nextCase) a coder ...
-		}
+		
 		
 	}
 	
