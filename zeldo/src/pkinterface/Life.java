@@ -4,5 +4,5 @@ public interface Life {
 
 	void gainLife(int nbVie);
 	
-	void loseLife();
+	void loseLife(int damage);
 }
