@@ -38,16 +38,16 @@ public class VueJeu extends JPanel {
 
 				switch (e.getKeyCode()) {
 				case KeyEvent.VK_UP:
-					playerDecision = Control.verifierPlayerDecision("moveUp");
+					playerDecision = Control.getInstance().verifierPlayerDecision("moveUp");
 					break;
 				case KeyEvent.VK_DOWN:
-					playerDecision = Control.verifierPlayerDecision("moveDown");
+					playerDecision = Control.getInstance().verifierPlayerDecision("moveDown");
 					break;
 				case KeyEvent.VK_RIGHT:
-					playerDecision = Control.verifierPlayerDecision("moveRight");
+					playerDecision = Control.getInstance().verifierPlayerDecision("moveRight");
 					break;
 				case KeyEvent.VK_LEFT:
-					playerDecision = Control.verifierPlayerDecision("moveLeft");
+					playerDecision = Control.getInstance().verifierPlayerDecision("moveLeft");
 					break;
 					
 				case KeyEvent.VK_ESCAPE:
@@ -56,7 +56,7 @@ public class VueJeu extends JPanel {
 					break;
 
 				case KeyEvent.VK_Z:
-					playerDecision = Control.verifierPlayerDecision("attack");
+					playerDecision = Control.getInstance().verifierPlayerDecision("attack");
 					break;
 				default:
 					;
@@ -84,7 +84,7 @@ public class VueJeu extends JPanel {
 		paintBoard(g);
 		
 		// # 
-		playerDecision = Control.action(this.playerDecision);
+		playerDecision = Control.getInstance().action(this.playerDecision);
 		
 		try {
 			Thread.sleep(32); // ms
@@ -96,18 +96,18 @@ public class VueJeu extends JPanel {
 	}
 
 	public void paintBoard(Graphics g) {
-		Case[][] board = Control.board.getBoard();
-		for (int i = 0; i < Control.board.getNbCaseHorizontal() ; i++) {
-			for (int j = 0; j <Control.board.getNbCaseVertical() ; j++) {
+		Case[][] board = Control.getInstance().board.getBoard();
+		for (int i = 0; i < Control.getInstance().board.getNbCaseHorizontal() ; i++) {
+			for (int j = 0; j <Control.getInstance().board.getNbCaseVertical() ; j++) {
 				ImageIcon decor = new ImageIcon(board[i][j].getDecor().getImageURL());
 				Image imgD = decor.getImage();
-				g.drawImage(imgD, (i-1) * Control.getTailleCase(), (j-1) * Control.getTailleCase(), Control.getTailleCase()*3,
-						Control.getTailleCase() *3, null); // x,y,largueur, hauteur,null
+				g.drawImage(imgD, (i-1) * Control.getInstance().getTailleCase(), (j-1) * Control.getInstance().getTailleCase(), Control.getInstance().getTailleCase()*3,
+						Control.getInstance().getTailleCase() *3, null); // x,y,largueur, hauteur,null
 				
 				ImageIcon unit = new ImageIcon(board[i][j].getUnit().getImageURL());
 				Image imgU = unit.getImage();
-				g.drawImage(imgU, (i-1) * Control.getTailleCase(), (j-1) * Control.getTailleCase(), Control.getTailleCase() * 3,
-						Control.getTailleCase() * 3, null); // x,y,largueur, hauteur,null
+				g.drawImage(imgU, (i-1) * Control.getInstance().getTailleCase(), (j-1) * Control.getInstance().getTailleCase(), Control.getInstance().getTailleCase() * 3,
+						Control.getInstance().getTailleCase() * 3, null); // x,y,largueur, hauteur,null
 			}
 		}
 

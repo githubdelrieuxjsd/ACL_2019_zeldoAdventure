@@ -1,4 +1,4 @@
-package vue;
+	package vue;
 
 import java.awt.Dimension;
 
@@ -15,12 +15,12 @@ public class Principale {
 	private static VueMenuStart start;
 
 	public static void main(String[] args) {
-
+		
 		frame = new JFrame();
 		start = new VueMenuStart();
 
-		Control.initPlateau(800, 800);
-		Control.placerHero();
+		Control.getInstance().initPlateau(800, 800);
+		Control.getInstance().placerHero();
 		// Control is an illusion
 		
 		frame.setPreferredSize(new Dimension(800, 800));

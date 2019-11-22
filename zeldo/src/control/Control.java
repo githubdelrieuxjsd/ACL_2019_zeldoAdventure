@@ -8,14 +8,24 @@ import model.Coordonnee;
 import model.Hero;
 import model.Tree;
 
-public class Control {
+public class Control {   
+    /** Constructeur privé */
+    private Control(){}
+ 
+    /** Instance unique pré-initialisée */
+    private static Control INSTANCE = new Control();
+     
+    /** Point d'accès pour l'instance unique du singleton */
+    public static Control getInstance(){
+    	return INSTANCE;}
+	
+	private int tailleCase = 80;
+	
+	public Hero hero;
 
-	private static int tailleCase = 80;
-	public static Hero hero;
+	public Board board;
 
-	public static Board board;
-
-	public static void initPlateau(int tailleHoriz, int tailleVerti) {
+	public void initPlateau(int tailleHoriz, int tailleVerti) {
 
 		int nbCaseHori = tailleHoriz / getTailleCase();
 		int nbCaseVerti = tailleVerti / getTailleCase()-1;
@@ -26,7 +36,7 @@ public class Control {
 
 	}
 	
-	public static void placerHero() {
+	public void placerHero() {
 		boolean placer = false;
 		int x= 0;
 		int y =0;
@@ -46,7 +56,7 @@ public class Control {
 		}
 	}
 
-	public static String verifierPlayerDecision(String commande) {
+	public String verifierPlayerDecision(String commande) {
 		Case[][] plateau = board.getBoard();
 
 		String rslt = "nothing";
@@ -84,7 +94,7 @@ public class Control {
 
 	
 	//#
-	public static String action(String playerDecision) {
+	public String action(String playerDecision) {
 		if (  playerDecision.equals("moveLeft") ){
 			hero.move(board, board.getCaseLeft(new Case (hero.getCoordonnee())));
 		}
@@ -100,12 +110,9 @@ public class Control {
 		return "nothing";
 	}
 
-	public static int getTailleCase() {
+	public int getTailleCase() {
 		return tailleCase;
 	}
 
-	public static void setTailleCase(int tailleCase) {
-		Control.tailleCase = tailleCase;
-	};
 
 }
