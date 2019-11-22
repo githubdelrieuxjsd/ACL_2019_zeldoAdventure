@@ -32,7 +32,7 @@ public class Hero extends Unit implements Move,Life {
 	}
 
 	public String toString() {
-		return "Le Héro est positionné en (x,y)=("+this.getCoordonnee().getX()+","+this.getCoordonnee().getY()+"), \n et sa vie est à "+this.getLife() ;	
+		return "Le Hero est positionne en (x,y)=("+this.getCoordonnee().getX()+","+this.getCoordonnee().getY()+"), \n et sa vie est à "+this.getLife() ;	
 	}
 
 	@Override

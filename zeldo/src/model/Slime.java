@@ -13,7 +13,7 @@ public class Slime extends Monster implements Move{
 
 	@Override
 	public void choisirAction(Board board) {
-		this.rotateDirection90Right();
+		this.rotateDirectionNinety();
 		Case nextCase= board.getCaseDirection(this);
 		if (!(nextCase == null)) {
 			if(nextCase.isPraticable(this)){
@@ -46,7 +46,7 @@ public class Slime extends Monster implements Move{
 
 	}
 
-	public void rotateDirection90Right() {
+	public void rotateDirectionNinety() {
 		switch(this.getDirection().getDirection()) {
 		case "up":
 			this.setDirection(new Direction("right"));
