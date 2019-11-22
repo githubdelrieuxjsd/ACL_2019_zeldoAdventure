@@ -23,7 +23,7 @@ public class Hero extends Unit implements Move,Life {
 
 	}
 	
-	public void attack(Board board, Direction direction) {
+	public void attack(Board board) {
 		Case caseFront = board.getCaseDirection(this);
 		if (caseFront.getUnit().isMonster()) {
 			 ((Monster) caseFront.getUnit()).loseLife(1);

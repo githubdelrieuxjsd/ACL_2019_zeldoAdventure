@@ -40,19 +40,19 @@ public class VueJeu extends JPanel {
 				switch (e.getKeyCode()) {
 				case KeyEvent.VK_UP:
 					Control.hero.setDirection(new Direction("up"));
-					playerDecision = Control.verifierPlayerDecision("moveUp");
+					playerDecision = Control.verifierPlayerDecision("move");
 					break;
 				case KeyEvent.VK_DOWN:
 					Control.hero.setDirection(new Direction("down"));
-					playerDecision = Control.verifierPlayerDecision("moveDown");
+					playerDecision = Control.verifierPlayerDecision("move");
 					break;
 				case KeyEvent.VK_RIGHT:
 					Control.hero.setDirection(new Direction("right"));
-					playerDecision = Control.verifierPlayerDecision("moveRight");
+					playerDecision = Control.verifierPlayerDecision("move");
 					break;
 				case KeyEvent.VK_LEFT:
 					Control.hero.setDirection(new Direction("left"));
-					playerDecision = Control.verifierPlayerDecision("moveLeft");
+					playerDecision = Control.verifierPlayerDecision("move");
 					break;
 					
 				case KeyEvent.VK_ESCAPE:
