@@ -1,7 +1,7 @@
 package model;
 
 public class Slime extends Monster implements Move{
-	
+
 	public Slime(Coordonnee c) {
 		this.setNom("Slime");
 		this.setImageURL("hyrule/tomato/beat/Down/3.png");
@@ -12,28 +12,41 @@ public class Slime extends Monster implements Move{
 	}
 
 	@Override
-	public void loseLife() {
-		// TODO Auto-generated method stub
-		
+	public void choisirAction(Board board) {
+		this.rotateDirectionNinety();
+		Case nextCase= board.getCaseDirection(this);
+		if (!(nextCase == null)) {
+			if(nextCase.isPraticable(this)){
+				this.move(board);
+			}
+			else {
+				this.attack(board);
+			}
+		}
+
+
 	}
+
+
 
 	@Override
 	public void move(Board board) {
-		this.rotateDirection90Right();
 		Case nextCase= board.getCaseDirection(this);
-		if (nextCase.isPraticable(this)) {
-			board.getBoard()[this.getCoordonnee().getX()][this.getCoordonnee().getY()].setUnit(new UnitVoid());
-			this.setCoordonnee(nextCase.getCoordonnee());
-			board.getBoard()[nextCase.getCoordonnee().getX()][nextCase.getCoordonnee().getY()].setUnit(new Slime(nextCase.getCoordonnee()));
-			
-		}
-		else {
-			// attaquer(nextCase) a coder ...
-		}
-		
+		board.getBoard()[this.getCoordonnee().getX()][this.getCoordonnee().getY()].setUnit(new UnitVoid());
+		this.setCoordonnee(nextCase.getCoordonnee());
+		board.getBoard()[nextCase.getCoordonnee().getX()][nextCase.getCoordonnee().getY()].setUnit(this);
+
 	}
-	
-	public void rotateDirection90Right() {
+
+	public void attack(Board board) {
+		Case caseFront = board.getCaseDirection(this);
+		if (caseFront.getUnit().getNom().equals(new String("Hero"))) {
+			((Hero) caseFront.getUnit()).loseLife(1);
+		}
+
+	}
+
+	public void rotateDirectionNinety() {
 		switch(this.getDirection().getDirection()) {
 		case "up":
 			this.setDirection(new Direction("right"));
@@ -48,12 +61,20 @@ public class Slime extends Monster implements Move{
 			this.setDirection(new Direction("up"));
 			break;
 		default:
-				// throwOutException
+			// throwOutException
 		}
 	}
-	
-	
 
-	
+	@Override
+	public void loseLife(int damage) {
+		// TODO Auto-generated method stub
+
+	}
+
+
+
+
+
+
 
 }

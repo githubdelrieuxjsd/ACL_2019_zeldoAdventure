@@ -9,14 +9,24 @@ import model.Direction;
 import model.Hero;
 import model.Tree;
 
-public class Control {
+public class Control {   
+	/** Constructeur privé */
+	private Control(){}
 
-	private static int tailleCase = 80;
-	public static Hero hero;
+	/** Instance unique pré-initialisée */
+	private static Control INSTANCE = new Control();
 
-	public static Board board;
+	/** Point d'accès pour l'instance unique du singleton */
+	public static Control getInstance(){
+		return INSTANCE;}
 
-	public static void initPlateau(int tailleHoriz, int tailleVerti) {
+	private int tailleCase = 80;
+
+	public Hero hero;
+
+	public Board board;
+
+	public void initPlateau(int tailleHoriz, int tailleVerti) {
 
 		int nbCaseHori = tailleHoriz / getTailleCase();
 		int nbCaseVerti = tailleVerti / getTailleCase();
@@ -25,11 +35,11 @@ public class Control {
 		board.addDecorRandom(new Tree(), 20);
 		board.completeGrass();
 
-		
-		
+
+
 	}
-	
-	public static void placerHero() {
+
+	public void placerHero() {
 		boolean placer = false;
 		int x= 0;
 		int y =0;
@@ -49,7 +59,7 @@ public class Control {
 		}
 	}
 
-	public static String verifierPlayerDecision(String commande) {
+	public String verifierPlayerDecision(String commande) {
 		Case[][] plateau = board.getBoard();
 
 		String rslt = "nothing";
@@ -71,7 +81,7 @@ public class Control {
 			break;
 		case "moveRight":
 			hero.setDirection(new Direction("right"));
-			
+
 			if ((hero.getCoordonnee().getX() != board.getNbCaseHorizontal()-1)
 					&& plateau[hero.getCoordonnee().getX() + 1][hero.getCoordonnee().getY()].isPraticable(hero)) {
 				rslt = "move";
@@ -79,7 +89,7 @@ public class Control {
 			break;
 		case "moveLeft":
 			hero.setDirection(new Direction("left"));
-			
+
 			if (hero.getCoordonnee().getX() != 0
 					&& plateau[hero.getCoordonnee().getX() - 1][hero.getCoordonnee().getY()].isPraticable(hero)) {
 				rslt = "move";
@@ -91,8 +101,9 @@ public class Control {
 		return rslt;
 	}
 
-	
-	public static String action(String playerDecision) {
+
+
+	public String action(String playerDecision) {
 		switch (playerDecision) {
 		case "move" :
 			hero.move(board);
@@ -100,17 +111,15 @@ public class Control {
 			break;
 		case "attack":
 			break;
-		default :
+		default:
 		}
 		return "nothing";
 	}
 
-	public static int getTailleCase() {
+
+	public int getTailleCase() {
 		return tailleCase;
 	}
 
-	public static void setTailleCase(int tailleCase) {
-		Control.tailleCase = tailleCase;
-	};
 
 }
