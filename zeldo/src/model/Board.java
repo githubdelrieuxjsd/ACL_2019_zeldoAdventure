@@ -114,7 +114,7 @@ public class Board {
 		return res;
 	}
 
-	public Case getCaseDirection(Case c) {
+	public Case getCaseDirection(Case c) {	
 		return null;
 	}
 	
