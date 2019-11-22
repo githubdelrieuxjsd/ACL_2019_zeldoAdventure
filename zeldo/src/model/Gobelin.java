@@ -50,7 +50,7 @@ public class Gobelin extends Monster implements Move{
 		Case nextCase= board.getCaseDirection(this);
 		board.getBoard()[this.getCoordonnee().getX()][this.getCoordonnee().getY()].setUnit(new UnitVoid());
 		this.setCoordonnee(nextCase.getCoordonnee());
-		board.getBoard()[nextCase.getCoordonnee().getX()][nextCase.getCoordonnee().getY()].setUnit(new Gobelin(nextCase.getCoordonnee()));
+		board.getBoard()[nextCase.getCoordonnee().getX()][nextCase.getCoordonnee().getY()].setUnit(this);
 
 	}
 
