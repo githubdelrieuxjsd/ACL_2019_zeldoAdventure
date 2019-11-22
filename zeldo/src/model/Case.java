@@ -33,12 +33,11 @@ public class Case {
 	}
 
 	public boolean isPraticable(Unit u) {
+		if (!(this==null)) {
 		if (decor.getNom().equals("Grass") && unit.getNom().equals("UnitVoid")) {
 
-			// test sur u
-
 			return true;
-		}
+		}}
 		return false;
 
 	}

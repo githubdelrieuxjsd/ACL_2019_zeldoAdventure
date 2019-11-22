@@ -13,7 +13,7 @@ import model.Board;
 
 public interface Move {
 	
-	void move(Board board, Case NextCase);
+	void move(Board board);
 	
 
 }

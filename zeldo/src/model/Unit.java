@@ -5,7 +5,7 @@ public abstract class Unit extends Element {
 	private Direction direction;
 	private int life;
 	private int lifeMax;
-	
+
 	public Coordonnee getCoordonnee() {
 		return coordonnee;
 	}
@@ -30,6 +30,15 @@ public abstract class Unit extends Element {
 		this.life = life;
 	}
 
+	/* public void looseLife(int damage) {
+		if (damage<this.getLife()) {
+			this.setLife(this.getLife()-damage);
+		}
+		else {
+			//this.delete();
+		}
+	}
+*/
 	public boolean isMonster() {
 		boolean rslt =false;
 		switch (this.getNom()) {
@@ -40,7 +49,7 @@ public abstract class Unit extends Element {
 			break;
 		}
 		return rslt;
-		
+
 	}
 
 	public Direction getDirection() {

@@ -14,58 +14,25 @@ public class Hero extends Unit implements Move,Life {
 		this.setDirection(new Direction("right"));
 	}
 
-	public void move(Board board, Case nextCase) {
+	public void move(Board board) {
+		Case nextCase= board.getCaseDirection(this);
 		board.getBoard()[this.getCoordonnee().getX()][this.getCoordonnee().getY()].setUnit(new UnitVoid());
 		this.setCoordonnee(nextCase.getCoordonnee());
 		board.getBoard()[nextCase.getCoordonnee().getX()][nextCase.getCoordonnee().getY()]
-				.setUnit(new Hero(nextCase.getCoordonnee()));
+				.setUnit(this);
 
 	}
 	
-	public void attack(Board board, Direction direction) {
-		switch (direction.getDirection()) {
-		case "up":
-			if(!(this.getCoordonnee().getY()==0)){
-				if(board.getBoard()[this.getCoordonnee().getX()][this.getCoordonnee().getY()-1].getUnit().isMonster()) {
-					Monster mstr = (Monster) board.getBoard()[this.getCoordonnee().getX()][this.getCoordonnee().getY()-1].getUnit();
-					mstr.loseLife();
-				}
-				
-			}
-			break;
-		case "down":
-			if(!(this.getCoordonnee().getY()==board.getNbCaseVertical())){
-				if(board.getBoard()[this.getCoordonnee().getX()][this.getCoordonnee().getY()+1].getUnit().isMonster()) {
-					Monster mstr = (Monster) board.getBoard()[this.getCoordonnee().getX()][this.getCoordonnee().getY()+1].getUnit();
-					mstr.loseLife();
-				}
-			}
-			break;
-		case "right":
-			if(!(this.getCoordonnee().getY()==board.getNbCaseHorizontal())){
-				if(board.getBoard()[this.getCoordonnee().getX()+1][this.getCoordonnee().getY()].getUnit().isMonster()) {
-					Monster mstr = (Monster) board.getBoard()[this.getCoordonnee().getX()+1][this.getCoordonnee().getY()].getUnit();
-					mstr.loseLife();
-				}
-			}
-			break;
-		case "left":
-			if(!(this.getCoordonnee().getY()==0)){
-				if(board.getBoard()[this.getCoordonnee().getX()-1][this.getCoordonnee().getY()].getUnit().isMonster()) {
-					Monster mstr = (Monster) board.getBoard()[this.getCoordonnee().getX()-1][this.getCoordonnee().getY()].getUnit();
-					mstr.loseLife();
-				}
-			}
-			break;
-		default:
-			break;
+	public void attack(Board board) {
+		Case caseFront = board.getCaseDirection(this);
+		if (caseFront.getUnit().isMonster()) {
+			 ((Monster) caseFront.getUnit()).loseLife(1);
 		}
 			
-		
 	}
 
 	public String toString() {
-		return "Le Héro est positionné en (x,y)=("+this.getCoordonnee().getX()+","+this.getCoordonnee().getY()+"), \n et sa vie est à "+this.getLife() ;	
+		return "Le Hero est positionne en (x,y)=("+this.getCoordonnee().getX()+","+this.getCoordonnee().getY()+"), \n et sa vie est à "+this.getLife() ;	
 	}
 
 	@Override
@@ -78,8 +45,8 @@ public class Hero extends Unit implements Move,Life {
 	}
 
 	@Override
-	public void loseLife() {
-		this.setLife(this.getLife()-1);
+	public void loseLife(int damage) {
+		this.setLife(this.getLife()-damage);
 		if(this.getLife()<=0) {
 			this.setLife(this.getLifeMax());
 		}

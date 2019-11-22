@@ -95,18 +95,7 @@ public class Control {
 	
 	//#
 	public String action(String playerDecision) {
-		if (  playerDecision.equals("moveLeft") ){
-			hero.move(board, board.getCaseLeft(new Case (hero.getCoordonnee())));
-		}
-		if (  playerDecision.equals("moveRight") ){
-			hero.move(board, board.getCaseRight(new Case (hero.getCoordonnee())));
-		}
-		if (  playerDecision.equals("moveUp") ){
-			hero.move(board, board.getCaseUp(new Case (hero.getCoordonnee())));
-		}
-		if (  playerDecision.equals("moveDown") ){
-			hero.move(board, board.getCaseDown(new Case (hero.getCoordonnee())));
-		}
+		//oupsi 
 		return "nothing";
 	}
 

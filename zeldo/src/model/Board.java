@@ -72,27 +72,40 @@ public class Board {
 		return null;
 	}
 	
+	
 	public Case getCaseUp(Case c) {
 		int x = c.getCoordonnee().getX();
 		int y = c.getCoordonnee().getY();
+		if( y==0) {
+			return null;
+		}
 		return this.board[x][y-1];
 	}
 
 	public Case getCaseDown(Case c) {
 		int x = c.getCoordonnee().getX();
 		int y = c.getCoordonnee().getY();
+		if(y==this.nbCaseVertical-1) {
+			return null;
+		}
 		return this.board[x][y+1];
 	}
 
 	public Case getCaseLeft(Case c) {
 		int x = c.getCoordonnee().getX();
 		int y = c.getCoordonnee().getY();
+		if(x==0) {
+			return null;
+		}
 		return this.board[x-1][y];
 	}
 
 	public Case getCaseRight(Case c) {
 		int x = c.getCoordonnee().getX();
 		int y = c.getCoordonnee().getY();
+		if(x==this.nbCaseHorizontal-1) {
+			return null;
+		}
 		return this.board[x+1][y];
 	}
 
@@ -131,7 +144,6 @@ public class Board {
 		}
 		return res;
 	}
-
 
 }
 
