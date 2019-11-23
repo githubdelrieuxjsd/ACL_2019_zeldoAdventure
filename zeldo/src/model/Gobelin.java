@@ -26,6 +26,7 @@ public class Gobelin extends Monster implements Move{
 	public void move(Board board) {
 		this.randomDirection();
 		Case nextCase= board.getCaseDirection(this);
+
 		if (!(nextCase == null) ) {
 			if (nextCase.isPraticable(this)) {
 				board.getBoard()[this.getCoordonnee().getX()][this.getCoordonnee().getY()].setUnit(new UnitVoid());
@@ -36,7 +37,7 @@ public class Gobelin extends Monster implements Move{
 			else {
 				// attaquer(nextCase) a coder ...
 			}
-		}
+}
 		
 		
 	}
