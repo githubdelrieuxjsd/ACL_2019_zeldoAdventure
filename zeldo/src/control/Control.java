@@ -15,6 +15,7 @@ public class Control {
 	/** Constructeur privé */
 	private Control() {
 		
+		
 	}
 
 	/** Instance unique pré-initialisée */
