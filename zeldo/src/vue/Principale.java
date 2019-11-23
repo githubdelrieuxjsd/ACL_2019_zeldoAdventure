@@ -1,4 +1,4 @@
-package vue;
+	package vue;
 
 import java.awt.Dimension;
 import java.awt.Toolkit;
@@ -16,7 +16,7 @@ public class Principale {
 	private static VueMenuStart start;
 
 	public static void main(String[] args) {
-
+		
 		frame = new JFrame();
 		start = new VueMenuStart();
 
@@ -24,9 +24,8 @@ public class Principale {
 		int gamescreenHeight = (int) (screenSize.height*0.8)+80 - (int) (screenSize.height*0.8)%80;		
 		int gamescreenWidth = (int) (screenSize.width*0.8)+80 - (int) (screenSize.width*0.8)%80;
 		
-		
-		Control.initPlateau(gamescreenWidth, gamescreenHeight);
-		Control.placerHero();
+		Control.getInstance().initPlateau(gamescreenWidth,gamescreenHeight);
+		Control.getInstance().placerHero();
 		// Control is an illusion
 		
 		frame.setPreferredSize(new Dimension(gamescreenWidth, gamescreenHeight));

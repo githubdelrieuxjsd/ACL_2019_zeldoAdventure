@@ -26,11 +26,10 @@ public class VueJeu extends JPanel {
 	private JButton exitBtn;
 
 	public VueJeu() {
-		
+
 		this.setLayout(null);
 		this.setBackground(Color.BLUE);
 		this.setBackground(new Color(147, 117, 56));
-
 
 		this.addKeyListener(new KeyListener() {
 
@@ -39,30 +38,39 @@ public class VueJeu extends JPanel {
 
 				switch (e.getKeyCode()) {
 				case KeyEvent.VK_UP:
-					Control.hero.setDirection(new Direction("up"));
-					playerDecision = Control.verifierPlayerDecision("move");
+
+					Control.getInstance().getHero().setDirection(new Direction("up"));
+					playerDecision = Control.getInstance().verifierPlayerDecision("move");
 					break;
 				case KeyEvent.VK_DOWN:
-					Control.hero.setDirection(new Direction("down"));
-					playerDecision = Control.verifierPlayerDecision("move");
+
+					Control.getInstance().getHero().setDirection(new Direction("down"));
+					playerDecision = Control.getInstance().verifierPlayerDecision("move");
 					break;
+
 				case KeyEvent.VK_RIGHT:
-					Control.hero.setDirection(new Direction("right"));
-					playerDecision = Control.verifierPlayerDecision("move");
-					break;
-				case KeyEvent.VK_LEFT:
-					Control.hero.setDirection(new Direction("left"));
-					playerDecision = Control.verifierPlayerDecision("move");
-					break;
-				case KeyEvent.VK_D:
-					playerDecision = Control.verifierPlayerDecision("attack");
+					Control.getInstance().getHero().setDirection(new Direction("right"));
+					playerDecision = Control.getInstance().verifierPlayerDecision("move");
 
 					break;
-					
+
+				case KeyEvent.VK_LEFT:
+					Control.getInstance().getHero().setDirection(new Direction("left"));
+					playerDecision = Control.getInstance().verifierPlayerDecision("move");
+					break;
+				case KeyEvent.VK_D:
+					playerDecision = Control.getInstance().verifierPlayerDecision("attack");
+
+					break;
+
+				case KeyEvent.VK_Z:
+					playerDecision = Control.getInstance().verifierPlayerDecision("attack");
+					break;
 				case KeyEvent.VK_ESCAPE:
-					vueStart = new VueMenuStart(); //revenir sur le menu start avec escape
+					vueStart = new VueMenuStart(); // revenir sur le menu start avec escape
 					exitJeu();
 					break;
+
 				default:
 					;
 				}
@@ -87,10 +95,10 @@ public class VueJeu extends JPanel {
 		super.paintComponent(g);
 
 		paintBoard(g);
-		
-		// # 
-		playerDecision = Control.action(this.playerDecision);
-		
+
+		// #
+		playerDecision = Control.getInstance().action(this.playerDecision);
+
 		try {
 			Thread.sleep(32); // ms
 		} catch (InterruptedException e) {
@@ -101,28 +109,30 @@ public class VueJeu extends JPanel {
 	}
 
 	public void paintBoard(Graphics g) {
-		Case[][] board = Control.board.getBoard();
-		for (int i = 0; i < Control.board.getNbCaseHorizontal() ; i++) {
-			for (int j = 0; j <Control.board.getNbCaseVertical() ; j++) {
+		Case[][] board = Control.getInstance().getBoard().getBoard();
+		for (int i = 0; i < Control.getInstance().getBoard().getNbCaseHorizontal(); i++) {
+			for (int j = 0; j < Control.getInstance().getBoard().getNbCaseVertical(); j++) {
 				ImageIcon decor = new ImageIcon(board[i][j].getDecor().getImageURL());
 				Image imgD = decor.getImage();
-				g.drawImage(imgD, (i-1) * Control.getTailleCase(), (j-1) * Control.getTailleCase(), Control.getTailleCase()*3,
-						Control.getTailleCase() *3, null); // x,y,largueur, hauteur,null
-				
+				g.drawImage(imgD, (i - 1) * Control.getInstance().getTailleCase(),
+						(j - 1) * Control.getInstance().getTailleCase(), Control.getInstance().getTailleCase() * 3,
+						Control.getInstance().getTailleCase() * 3, null); // x,y,largueur, hauteur,null
+
 				ImageIcon unit = new ImageIcon(board[i][j].getUnit().getImageURL());
 				Image imgU = unit.getImage();
-				g.drawImage(imgU, (i-1) * Control.getTailleCase(), (j-1) * Control.getTailleCase(), Control.getTailleCase() * 3,
-						Control.getTailleCase() * 3, null); // x,y,largueur, hauteur,null
+				g.drawImage(imgU, (i - 1) * Control.getInstance().getTailleCase(),
+						(j - 1) * Control.getInstance().getTailleCase(), Control.getInstance().getTailleCase() * 3,
+						Control.getInstance().getTailleCase() * 3, null); // x,y,largueur, hauteur,null
 			}
 		}
 
 	}
-	
+
 	private void exitJeu() {
 		Principale.getFrame().setContentPane(vueStart);
 		Principale.getFrame().pack();
 		this.updateUI();
 		vueStart.requestFocus();
-		
+
 	}
 }

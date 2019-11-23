@@ -20,18 +20,23 @@ public class Hero extends Unit implements Move, Life {
 		board.getBoard()[nextCase.getCoordonnee().getX()][nextCase.getCoordonnee().getY()].setUnit(this);
 	}
 
+
 	public void attack(Board board) {
-		Case caseDevant = board.getCaseDirection(this);
-
-		if (caseDevant.getUnit().isMonster()) {
-
-			Monster mstr = (Monster) caseDevant.getUnit();
-			mstr.loseLife();
+		Case caseFront = board.getCaseDirection(this);
+		if (caseFront.getUnit().isMonster()) {
+			((Monster) caseFront.getUnit()).loseLife(1);
 		}
+
 	}
 
-	public void gainLife(int nbVie) {
-		if (nbVie - this.getLifeMax() > 0) {
+	public String toString() {
+		return "Le Hero est positionne en (x,y)=("+this.getCoordonnee().getX()+","+this.getCoordonnee().getY()+"), \n et sa vie est à "+this.getLife() ;	
+	}
+
+	@Override
+		public void gainLife(int nbVie) {
+		if(nbVie-this.getLifeMax() > 0) {
+
 			this.setLife(this.getLifeMax());
 		} else {
 			this.setLife(this.getLife() + nbVie);
@@ -39,18 +44,19 @@ public class Hero extends Unit implements Move, Life {
 	}
 
 	@Override
-	public void loseLife() {
-		this.setLife(this.getLife() - 1);
-		if (this.getLife() <= 0) {
+
+	public void loseLife(int damage) {
+		this.setLife(this.getLife()-damage);
+		if(this.getLife()<=0) {
 			this.setLife(this.getLifeMax());
 		}
 
 	}
 
 	public String getImageURL() {
-		// System.out.println(this.getDirection().getDirection());
 		return "hyrule/link/beat/" + this.getDirection().getDirection().substring(0, 1).toUpperCase() + "1.png";
 
 	}
+
 
 }

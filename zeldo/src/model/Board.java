@@ -54,12 +54,34 @@ public class Board {
 		}
 	}
 	
+	public Case getCaseDirection(Unit u) {
+		Case c = this.getBoard()[u.getCoordonnee().getX()][u.getCoordonnee().getY()];
+		switch(u.getDirection().getDirection()) {
+		case"up":
+			return this.getCaseUp(c);
+		case"right":
+			return this.getCaseRight(c);
+		case"down":
+			return this.getCaseDown(c);
+		case"left":
+			return this.getCaseLeft(c);
+			default : 
+				System.out.println("Board.getCaseDirection :" + c.getUnit().getDirection().getDirection());
+				// error
+		}
+		return null;
+	}
+	
+	
 	public Case getCaseUp(Case c) {
 		if (c.getCoordonnee().getY()== 0) {
 		return null;
 		}
 		int x = c.getCoordonnee().getX();
 		int y = c.getCoordonnee().getY();
+		if( y==0) {
+			return null;
+		}
 		return this.board[x][y-1];
 	}
 
@@ -69,6 +91,9 @@ public class Board {
 		}
 		int x = c.getCoordonnee().getX();
 		int y = c.getCoordonnee().getY();
+		if(y==this.nbCaseVertical-1) {
+			return null;
+		}
 		return this.board[x][y+1];
 	}
 
@@ -78,6 +103,9 @@ public class Board {
 		}
 		int x = c.getCoordonnee().getX();
 		int y = c.getCoordonnee().getY();
+		if(x==0) {
+			return null;
+		}
 		return this.board[x-1][y];
 	}
 
@@ -87,6 +115,9 @@ public class Board {
 		}
 		int x = c.getCoordonnee().getX();
 		int y = c.getCoordonnee().getY();
+		if(x==this.nbCaseHorizontal-1) {
+			return null;
+		}
 		return this.board[x+1][y];
 	}
 
@@ -126,23 +157,5 @@ public class Board {
 		return res;
 	}
 
-	public Case getCaseDirection(Unit u) {
-		Case c = this.getBoard()[u.getCoordonnee().getX()][u.getCoordonnee().getY()];
-		switch(u.getDirection().getDirection()) {
-		case"up":
-			return this.getCaseUp(c);
-		case"right":
-			return this.getCaseRight(c);
-		case"down":
-			return this.getCaseDown(c);
-		case"left":
-			return this.getCaseLeft(c);
-			default : 
-				System.out.println("Board.getCaseDirection :" + c.getUnit().getDirection().getDirection());
-				
-		}
-		return null;
-	}
-	
 }
 
