@@ -1,7 +1,7 @@
 /**
  * 
  */
-package model;
+package pkinterface;
 
 import model.Case;
 import model.Board;

@@ -1,5 +1,7 @@
 package model;
 
+import pkinterface.Move;
+
 public class Slime extends Monster implements Move{
 
 	public Slime(Coordonnee c) {
