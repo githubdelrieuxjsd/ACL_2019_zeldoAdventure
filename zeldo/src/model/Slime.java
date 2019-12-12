@@ -12,6 +12,10 @@ public class Slime extends Monster implements Move{
 	}
 
 	@Override
+	/**
+	 * if the case in front of the Slime is practicable he will move()
+	 * 		
+	 * else (a hero must be in front of him) and he will attack()	 */
 	public void choisirAction(Board board) {
 		this.rotateDirectionNinety();
 		Case nextCase= board.getCaseDirection(this);
@@ -30,6 +34,9 @@ public class Slime extends Monster implements Move{
 
 
 	@Override
+	/**
+	 * this monster (Slime) will move in a random direction and in one case range
+	 */
 	public void move(Board board) {
 		Case nextCase= board.getCaseDirection(this);
 		board.getBoard()[this.getCoordonnee().getX()][this.getCoordonnee().getY()].setUnit(new UnitVoid());
@@ -37,7 +44,9 @@ public class Slime extends Monster implements Move{
 		board.getBoard()[nextCase.getCoordonnee().getX()][nextCase.getCoordonnee().getY()].setUnit(this);
 
 	}
-
+	/**
+	 * This monster (Slime) can only attack a hero
+	 */
 	public void attack(Board board) {
 		Case caseFront = board.getCaseDirection(this);
 		if (caseFront.getUnit().getNom().equals(new String("Hero"))) {
@@ -45,7 +54,9 @@ public class Slime extends Monster implements Move{
 		}
 
 	}
-
+	/**
+	 * a Slime must move in a sqare, so he shall rotate by ninety degree in the right way 
+	 */
 	public void rotateDirectionNinety() {
 		switch(this.getDirection().getDirection()) {
 		case "up":

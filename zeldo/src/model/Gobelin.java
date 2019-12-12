@@ -14,6 +14,10 @@ public class Gobelin extends Monster implements Move{
 	}
 
 	@Override
+	/**
+	 * if the case in front of the Slime is practicable he will move()
+	 * 		
+	 * else (a hero must be in front of him) and he will attack()	 */
 	public void choisirAction(Board board) {
 		this.randomDirection();
 		Case nextCase= board.getCaseDirection(this);
@@ -29,7 +33,9 @@ public class Gobelin extends Monster implements Move{
 
 	}
 
-
+	/**
+	 *A Gobelin attack() in front of him and only attack a hero
+	 */
 	public void attack(Board board) {
 		Case caseFront = board.getCaseDirection(this);
 		if (caseFront.getUnit().getNom().equals(new String("Hero"))) {
@@ -37,7 +43,7 @@ public class Gobelin extends Monster implements Move{
 		}
 
 	}
-
+	
 	public void loseLife(int damage) {
 		this.setLife(this.getLife()-damage);
 		if(this.getLife()<=0) {
