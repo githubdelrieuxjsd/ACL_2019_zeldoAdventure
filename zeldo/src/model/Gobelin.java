@@ -73,7 +73,7 @@ public class Gobelin extends Monster implements Move{
 			this.setDirection(new Direction("left"));
 			break;
 		default:
-			// throwError à coder
+			// throwError a coder
 		}
 	}
 

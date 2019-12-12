@@ -1,25 +1,23 @@
 package control;
 
-import java.awt.event.KeyEvent;
 
 import model.Board;
 import model.Case;
 import model.Coordonnee;
-import model.Direction;
 import model.Hero;
 import model.Tree;
 import model.Slime;
 import model.Gobelin;
 
 public class Control {
-	/** Constructeur privé */
+	/** Constructeur priv*/
 	private Control() {
 	}
 
-	/** Instance unique pré-initialisée */
+	/** Instance unique prinitialise */
 	private static Control INSTANCE = new Control();
 
-	/** Point d'accès pour l'instance unique du singleton */
+	/** Point d'accs pour l'instance unique du singleton */
 	public static Control getInstance() {
 		return INSTANCE;
 	}
