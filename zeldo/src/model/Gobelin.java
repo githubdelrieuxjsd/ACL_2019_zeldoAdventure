@@ -1,5 +1,7 @@
 package model;
 
+import pkinterface.Move;
+
 public class Gobelin extends Monster implements Move{
 
 	public Gobelin(Coordonnee c) {

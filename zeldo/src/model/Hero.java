@@ -1,6 +1,7 @@
 package model;
 
 import pkinterface.Life;
+import pkinterface.Move;
 
 public class Hero extends Unit implements Move, Life {
 	
