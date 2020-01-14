@@ -1,40 +1,90 @@
 package model;
 
 public class Direction {
+
 	
-	private String direction;
+	String direction ;
+
+	
 	
 	public Direction(String direction) {
-		switch(direction.toUpperCase()) {
-		case "UP":
+		super();
+		switch (direction) {
+		case "up":
 			this.direction = "up";
-			//System.out.println(this.direction);
 			break;
-		case "DOWN":
+		case "down":
 			this.direction = "down";
-			//System.out.println(this.direction);
+
 			break;
-		case "RIGHT":
-			this.direction = "right";
-			//System.out.println(this.direction);
-			break;
-		case "LEFT":
+		case "left":
 			this.direction = "left";
-			//System.out.println(this.direction);
+
+			break;
+		case "right":
+			this.direction = "right";
+
+			break;
+		case "Up":
+			this.direction = "up";
+			break;
+		case "Down":
+			this.direction = "down";
+
+			break;
+		case "Left":
+			this.direction = "left";
+
+			break;
+		case "Right":
+			this.direction = "right";
 			break;
 		default:
-			System.out.println("DIRECTION ERROR :" +direction.toUpperCase());
+			System.out.println( "!!! ERROR DIRECTION CONSTRUCTEUR CAN T ASSIGNE :"+ direction);
+			this.direction = "down";
 			break;
 		}
+	}
+
+	public boolean oppose(Direction direction) {
+		boolean res = false ;
+		if (this.direction.equals("right") && direction.equals("left")) {
+			res = true;
+		}
+		if (this.direction.equals("left") && direction.equals("right")) {
+			res = true;
+		}
+		if (this.direction.equals("up") && direction.equals("down")) {
+			res = true;
+		}
+		if (this.direction.equals("down") && direction.equals("up")) {
+			res = true;	
+		}
+	return res;
+	}
+	
+	public boolean equals (String s) {
+		return this.getDirection().equals(s);
 	}
 	
 	public String getDirection() {
 		return direction;
 	}
 
-
+	public void setDirection(String direction) {
+		this.direction = direction;
+	} 
+	
 	public void setDirection(Direction direction) {
 		this.direction = direction.getDirection();
-	} 
+	}
 
+	@Override
+	public String toString() {
+		return  direction;
+	} 
+	
+	
+	
+	
 }
