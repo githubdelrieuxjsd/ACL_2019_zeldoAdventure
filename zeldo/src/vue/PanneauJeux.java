@@ -52,7 +52,7 @@ public class PanneauJeux extends JPanel {
 		
 		fps = 31;
 		herodescision = "nothing";
-		heroaction = false;
+		heroaction = false; 
 		
 		
 		
