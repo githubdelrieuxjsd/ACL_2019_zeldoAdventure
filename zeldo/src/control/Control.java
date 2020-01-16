@@ -12,16 +12,16 @@ import model.Slime;
 import model.Gobelin;
 
 public class Control {
-	/** Constructeur privé */
+	/** Constructeur prive */
 	private Control() {
 		
 		
 	}
 
-	/** Instance unique pré-initialisée */
+	/** Instance unique pre-initialisee */
 	private static Control INSTANCE = new Control();
 
-	/** Point d'accès pour l'instance unique du singleton */
+	/** Point d'acces pour l'instance unique du singleton */
 	public static Control getInstance() {
 		return INSTANCE;
 	}

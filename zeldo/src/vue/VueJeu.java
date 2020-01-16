@@ -24,6 +24,7 @@ public class VueJeu extends JPanel {
 	private VueMenuStart vueStart;
 	private String playerDecision = "nothing";
 	private JButton exitBtn;
+	//private double fps = 30;
 
 	public VueJeu() {
 
@@ -38,7 +39,6 @@ public class VueJeu extends JPanel {
 
 				switch (e.getKeyCode()) {
 				case KeyEvent.VK_UP:
-
 					Control.getInstance().getHero().setDirection(new Direction("up"));
 					playerDecision = Control.getInstance().verifierPlayerDecision("move");
 					break;
